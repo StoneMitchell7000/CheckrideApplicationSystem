@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MonitoringComponent } from './monitoring/monitoring.component';
 import { ApprovalComponent } from './approval/approval.component';
-import { DetailsComponent } from './details/details.component';
+import { AvailabilityComponent } from './availability/availability.component';
 import { FormComponent } from './form/form.component';
 import { LoginComponent } from './login/login.component';
 
@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     MonitoringComponent,
     ApprovalComponent,
-    DetailsComponent,
+    AvailabilityComponent,
     FormComponent,
     LoginComponent
   ],
