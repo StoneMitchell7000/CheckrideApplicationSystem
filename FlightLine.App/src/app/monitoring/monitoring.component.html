@@ -10,13 +10,13 @@
         <form class="search-form">
             <mat-form-field class="search-field">
                 <mat-label>Search By Phone</mat-label>
-                <input [formControl]="phoneSearchControl" matInput type="text" mask="(000) 000-0000">
+                <input matInput type="text" mask="(000) 000-0000">
                 <mat-icon matSuffix>call</mat-icon>
             </mat-form-field>
         </form>
 
-        <button mat-button class="add-button" (click)="createPatient()" matRipple [matRippleUnbounded]="false"
-            [matRippleCentered]="true" [matRippleColor]="'rgba(255, 255, 255, 100)'">Add Patient
+        <button mat-button class="add-button" matRipple [matRippleUnbounded]="false" [matRippleCentered]="true"
+            [matRippleColor]="'rgba(255, 255, 255, 100)'">Add Patient
             <mat-icon matSuffix>add</mat-icon>
         </button>
     </div>
@@ -33,15 +33,16 @@
                     <div style="border-top-right-radius: 4px;"></div>
                 </div>
                 <div class="patient-scroll-container">
-                    <div *ngFor="let patient of filteredPatients">
+                    <!-- *ngFor="let patient of filteredPatients" -->
+                    <div>
                         <div class="patient-row animated fadeInUp">
-                            <div>{{patient.lastName}}</div>
-                            <div>{{patient.firstName}}</div>
-                            <div>{{patient.displayDate}}</div>
-                            <div>{{patient.phone | phoneFormat}}</div>
-                            <div>{{patient.email}}</div>
+                            <div>asdf</div>
+                            <div>asdf</div>
+                            <div>asdf</div>
+                            <div>2345</div>
+                            <div>asdfasdf</div>
                             <div class="clickrow" matTooltip="Click to See Patient Details" matTooltipPosition="below"
-                                matTooltipShowDelay="600" matRipple [matRippleColor]="'#ff676726'" (click)="openDrilldown(patient)"></div>
+                                matTooltipShowDelay="600" matRipple [matRippleColor]="'#ff676726'"></div>
                         </div>
                     </div>
                 </div>
