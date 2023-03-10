@@ -9,6 +9,9 @@ import { ApprovalComponent } from './approval/approval.component';
 import { AvailabilityComponent } from './availability/availability.component';
 import { FormComponent } from './form/form.component';
 import { LoginComponent } from './login/login.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatRippleModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
