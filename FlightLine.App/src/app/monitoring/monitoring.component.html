@@ -1,1 +1,52 @@
-<h1 class="animated bounceInUp">I LIKE BALLS!!</h1>
+<div class="patients-grid">
+    <div class="search-bar">
+        <form class="search-form">
+            <mat-form-field class="search-field">
+                <mat-label>Search Patients</mat-label>
+                <input matInput>
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </form>
+        <form class="search-form">
+            <mat-form-field class="search-field">
+                <mat-label>Search By Phone</mat-label>
+                <input [formControl]="phoneSearchControl" matInput type="text" mask="(000) 000-0000">
+                <mat-icon matSuffix>call</mat-icon>
+            </mat-form-field>
+        </form>
+
+        <button mat-button class="add-button" (click)="createPatient()" matRipple [matRippleUnbounded]="false"
+            [matRippleCentered]="true" [matRippleColor]="'rgba(255, 255, 255, 100)'">Add Patient
+            <mat-icon matSuffix>add</mat-icon>
+        </button>
+    </div>
+    <div class="patient-block">
+
+        <div class="patient-table animated fadeIn">
+            <div class="patient-relative-wrapper">
+                <div class="patient-header patient-row">
+                    <div style="border-top-left-radius: 4px;">Last Name</div>
+                    <div>First Name</div>
+                    <div>Date of Birth</div>
+                    <div>Phone</div>
+                    <div>Email</div>
+                    <div style="border-top-right-radius: 4px;"></div>
+                </div>
+                <div class="patient-scroll-container">
+                    <div *ngFor="let patient of filteredPatients">
+                        <div class="patient-row animated fadeInUp">
+                            <div>{{patient.lastName}}</div>
+                            <div>{{patient.firstName}}</div>
+                            <div>{{patient.displayDate}}</div>
+                            <div>{{patient.phone | phoneFormat}}</div>
+                            <div>{{patient.email}}</div>
+                            <div class="clickrow" matTooltip="Click to See Patient Details" matTooltipPosition="below"
+                                matTooltipShowDelay="600" matRipple [matRippleColor]="'#ff676726'" (click)="openDrilldown(patient)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
