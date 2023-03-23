@@ -1,47 +1,31 @@
-<div class="patients-grid">
+<div class="forms-grid">
     <div class="search-bar">
         <form class="search-form">
             <mat-form-field class="search-field">
-                <mat-label>Search Patients</mat-label>
+                <mat-label>Search Forms</mat-label>
                 <input matInput>
                 <mat-icon matSuffix>search</mat-icon>
             </mat-form-field>
         </form>
-        <form class="search-form">
-            <mat-form-field class="search-field">
-                <mat-label>Search By Phone</mat-label>
-                <input matInput type="text" mask="(000) 000-0000">
-                <mat-icon matSuffix>call</mat-icon>
-            </mat-form-field>
-        </form>
-
-        <button mat-button class="add-button" matRipple [matRippleUnbounded]="false" [matRippleCentered]="true"
-            [matRippleColor]="'rgba(255, 255, 255, 100)'">Add Patient
-            <mat-icon matSuffix>add</mat-icon>
-        </button>
     </div>
-    <div class="patient-block">
+    <div class="form-block">
 
-        <div class="patient-table animated fadeIn">
-            <div class="patient-relative-wrapper">
-                <div class="patient-header patient-row">
-                    <div style="border-top-left-radius: 4px;">Last Name</div>
-                    <div>First Name</div>
-                    <div>Date of Birth</div>
-                    <div>Phone</div>
-                    <div>Email</div>
+        <div class="form-table animated fadeIn">
+            <div class="form-relative-wrapper">
+                <div class="form-header form-row">
+                    <div style="border-top-left-radius: 4px;">Student</div>
+                    <div>Form Details</div>
+                    <div>Actions</div>
                     <div style="border-top-right-radius: 4px;"></div>
                 </div>
-                <div class="patient-scroll-container">
-                    <!-- *ngFor="let patient of filteredPatients" -->
+                <div class="form-scroll-container">
+                    <!-- *ngFor="let form of filteredForms" -->
                     <div>
-                        <div class="patient-row animated fadeInUp">
+                        <div class="form-row animated fadeInUp">
                             <div>asdf</div>
                             <div>asdf</div>
                             <div>asdf</div>
-                            <div>2345</div>
-                            <div>asdfasdf</div>
-                            <div class="clickrow" matTooltip="Click to See Patient Details" matTooltipPosition="below"
+                            <div class="clickrow" matTooltip="Click to See Form Details" matTooltipPosition="below"
                                 matTooltipShowDelay="600" matRipple [matRippleColor]="'#ff676726'"></div>
                         </div>
                     </div>
