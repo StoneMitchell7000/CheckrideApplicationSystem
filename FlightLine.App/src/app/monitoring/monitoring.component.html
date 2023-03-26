@@ -1,6 +1,16 @@
 <div class="forms-grid">
     <div class="search-bar">
+        <div class="forms-title">Checkride Forms</div>
         <form class="search-form">
+            <mat-form-field class="search-field" style="margin-right: 10px;">
+                <mat-label>Filter Forms</mat-label>
+                <mat-select>
+                    <mat-option value="none">None</mat-option>
+                    <mat-option value="new">New</mat-option>
+                    <mat-option value="pending">Pending</mat-option>
+                    <mat-option value="completed">Completed</mat-option>
+                </mat-select>
+            </mat-form-field>
             <mat-form-field class="search-field">
                 <mat-label>Search Forms</mat-label>
                 <input matInput>
@@ -24,9 +34,28 @@
                         <div class="form-row animated fadeInUp">
                             <div>asdf</div>
                             <div>asdf</div>
-                            <div>asdf</div>
-                            <div class="clickrow" matTooltip="Click to See Form Details" matTooltipPosition="below"
-                                matTooltipShowDelay="600" matRipple [matRippleColor]="'#ff676726'"></div>
+                            <div>
+                                <button mat-icon-button class="action-button" matTooltip="Fill Out and Submit"
+                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    <i class="material-icons">edit_square</i>
+                                </button>
+                                <button mat-icon-button class="action-button" matTooltip="Approve"
+                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    <i class="material-icons">done_all</i>
+                                </button>
+                                <button mat-icon-button class="action-button" matTooltip="Give Marks"
+                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    <i class="material-icons">rule</i>
+                                </button>
+                                <button mat-icon-button class="action-button" matTooltip="View Availability"
+                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    <i class="material-icons">calendar_month</i>
+                                </button>
+                                <button mat-icon-button class="action-button" matTooltip="Export to PDF"
+                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    <i class="material-icons">picture_as_pdf</i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
