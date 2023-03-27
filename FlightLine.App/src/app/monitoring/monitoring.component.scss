@@ -118,3 +118,32 @@
     -webkit-filter: drop-shadow(5px 5px 5px #00000059);
     filter: drop-shadow(5px 5px 5px #00000059);
 }
+
+.new-form div {
+    background-color: rgb(255, 222, 222);
+}
+
+.pending-form div {
+    background-color: #fff4cd;
+}
+
+.completed-form div {
+    background-color: rgb(208, 229, 198);
+}
+
+.row-spine {
+    font-weight: bold;
+    padding-top: 13px !important;
+}
+
+.new-form .row-spine {
+    border-left: solid 6px rgb(255, 83, 83);
+}
+
+.pending-form .row-spine {
+    border-left: solid 6px #ffcb06;
+}
+
+.completed-form .row-spine {
+    border-left: solid 6px rgb(97, 208, 46);
+}
