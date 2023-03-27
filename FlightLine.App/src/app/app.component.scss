@@ -17,7 +17,7 @@
     left: 0;
     right: 0;
     top: 58px;
-    background-image: radial-gradient(white, #ececec);
+    background-color: white;
 }
 
 .header-logo {
@@ -26,4 +26,32 @@
     margin-left: 8px;
     -webkit-filter: drop-shadow(5px 5px 5px #00000059);
     filter: drop-shadow(5px 5px 5px #00000059);
+}
+
+.app-title {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    font-size: 27px;
+    vertical-align: top;
+    margin-top: 15px;
+    margin-left: 13px;
+    -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+    filter: drop-shadow(5px 5px 5px #00000059);
+    font-style: italic;
+}
+
+.profile-button {
+    vertical-align: top;
+    margin-top: 1px;
+    float: right;
+    margin-right: 8px;
+    color: white;
+    -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+    filter: drop-shadow(5px 5px 5px #00000059);
+    padding: 6px 0 0 0;
+}
+
+.profile-button .material-icons {
+    font-size: 36px;
 }

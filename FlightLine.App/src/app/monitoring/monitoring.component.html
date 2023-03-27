@@ -1,1 +1,67 @@
-<p>monitoring works!</p>
+<div class="forms-grid">
+    <div class="search-bar">
+        <div class="forms-title">Checkride Forms</div>
+        <form class="search-form">
+            <mat-form-field class="search-field" style="margin-right: 10px;">
+                <mat-label>Filter By Status</mat-label>
+                <mat-select>
+                    <mat-option value="none">None</mat-option>
+                    <mat-option value="new">New</mat-option>
+                    <mat-option value="pending">Pending</mat-option>
+                    <mat-option value="completed">Completed</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="search-field">
+                <mat-label>Search By Name</mat-label>
+                <input matInput>
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="form-block">
+
+        <div class="form-table animated fadeIn">
+            <div class="form-relative-wrapper">
+                <div class="form-header form-row">
+                    <div style="border-top-left-radius: 4px;">Student</div>
+                    <div>Form Details</div>
+                    <div>Actions</div>
+                    <div style="border-top-right-radius: 4px;"></div>
+                </div>
+                <div class="form-scroll-container">
+                    <div *ngFor="let form of filteredForms">
+                        <div class="form-row animated fadeInUp" [ngClass]="{'new-form' : form.status === 'new', 
+                            'pending-form' : form.status === 'pending', 
+                            'completed-form' : form.status === 'completed'}">
+                            <div class="row-spine">{{form.studentName}}</div>
+                            <div>{{form.details}}</div>
+                            <div>
+                                <button mat-icon-button class="action-button" matTooltip="Fill Out and Submit"
+                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    <i class="material-icons">edit_square</i>
+                                </button>
+                                <button mat-icon-button class="action-button" matTooltip="Approve"
+                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    <i class="material-icons">done_all</i>
+                                </button>
+                                <button mat-icon-button class="action-button" matTooltip="Give Marks"
+                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    <i class="material-icons">rule</i>
+                                </button>
+                                <button mat-icon-button class="action-button" matTooltip="View Availability"
+                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    <i class="material-icons">calendar_month</i>
+                                </button>
+                                <button mat-icon-button class="action-button" matTooltip="Export to PDF"
+                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    <i class="material-icons">picture_as_pdf</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
