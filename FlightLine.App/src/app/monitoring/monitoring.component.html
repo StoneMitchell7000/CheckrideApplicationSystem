@@ -2,19 +2,21 @@
     <div class="search-bar">
         <div class="forms-title">Checkride Forms</div>
         <form class="search-form">
-            <mat-form-field class="search-field" style="margin-right: 10px;">
+            <mat-form-field class="search-field">
+                <mat-label>Search By Name</mat-label>
+                <input [formControl]="searchControl" matInput>
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </form>
+        <form class="search-form" style="margin-right: 10px;">
+            <mat-form-field class="search-field">
                 <mat-label>Filter By Status</mat-label>
-                <mat-select>
+                <mat-select [formControl]="statusSearchControl">
                     <mat-option value="none">None</mat-option>
                     <mat-option value="new">New</mat-option>
                     <mat-option value="pending">Pending</mat-option>
                     <mat-option value="completed">Completed</mat-option>
                 </mat-select>
-            </mat-form-field>
-            <mat-form-field class="search-field">
-                <mat-label>Search By Name</mat-label>
-                <input matInput>
-                <mat-icon matSuffix>search</mat-icon>
             </mat-form-field>
         </form>
     </div>

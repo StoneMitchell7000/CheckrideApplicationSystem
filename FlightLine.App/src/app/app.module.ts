@@ -22,6 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AccountDialogComponent } from './account-dialog/account-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     NgProgressHttpModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
