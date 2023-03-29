@@ -45,7 +45,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatTooltipModule,
     HttpClientModule,
-    NgProgressModule,
+    NgProgressModule.withConfig({
+      color: "#ffcb06"
+    }),
     NgProgressHttpModule,
     MatDialogModule,
     MatSnackBarModule,

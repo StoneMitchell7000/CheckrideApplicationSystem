@@ -3,7 +3,7 @@
         <img class="header-logo" src="../assets/erau-logo.png">
         <div class="app-title">Checkride Application System</div>
         <button mat-icon-button class="profile-button" matTooltip="Account" matTooltipPosition="left"
-            matTooltipShowDelay="400" (click)="openAccount()">
+            matTooltipShowDelay="400" (click)="openAccount()" *ngIf="router.url !== '/login'">
             <i class="material-icons">account_circle</i>
         </button>
     </div>

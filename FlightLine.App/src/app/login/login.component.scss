@@ -1,0 +1,74 @@
+.login-background {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #ffcb06;
+}
+
+.background-highlight {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    border-radius: 20px;
+    background-color: #03539e;
+    -webkit-filter: drop-shadow(5px 5px 5px #22222288);
+    filter: drop-shadow(5px 5px 5px #22222288);
+}
+
+.login-container {
+    padding: 20px;
+    width: 280px;
+    height: unset;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+    filter: drop-shadow(5px 5px 5px #00000059);
+}
+
+.relative-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 8px;
+    background-color: black;
+    background-color: transparent;
+    border-radius: 10px;
+    height: unset;
+    -webkit-filter: drop-shadow(2px 2px 2px #22222288);
+    filter: drop-shadow(2px 2px 2px #22222288);
+}
+
+.logo-subtext {
+    color: #03539e;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    -webkit-filter: drop-shadow(2px 2px 2px #22222288);
+    filter: drop-shadow(2px 2px 2px #22222288);
+}
+
+.button-contatiner {
+    display: inline;
+}
+
+.text-button {
+    background-color: #ffcb06;
+    -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+    filter: drop-shadow(5px 5px 5px #00000059);
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    width: 100%;
+}

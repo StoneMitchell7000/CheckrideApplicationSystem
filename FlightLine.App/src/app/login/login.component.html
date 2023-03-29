@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="login-background">
+
+    <div class="relative-wrapper">
+
+        <div class="background-highlight animated fadeIn">
+
+            <div class="relative-wrapper">
+
+                <div class="login-container">
+
+                    <div class="logo-container">
+                        <div class="logo-subtext">
+                            Choose User Type (Temp)
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button mat-button class="text-button" (click)="changeUser('IP')">Instructor Pilot</button>
+                        <button mat-button class="text-button" (click)="changeUser('CI')">Check Instructor</button>
+                        <button mat-button class="text-button" (click)="changeUser('TM')">Training Manager</button>
+                        <button mat-button class="text-button" (click)="changeUser('FO')">Flight Operations</button>
+                        <button mat-button class="text-button" (click)="changeUser('RO')">Records Office</button>
+                        <button mat-button class="text-button" (click)="changeUser('ADMIN')">Administrator (Testing)</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

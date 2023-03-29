@@ -15,4 +15,8 @@ export class AccountDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  logout(): void {
+      this.dialogRef.close(true);
+  }
 }

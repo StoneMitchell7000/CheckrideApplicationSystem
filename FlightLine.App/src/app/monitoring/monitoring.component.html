@@ -1,14 +1,14 @@
 <div class="forms-grid">
     <div class="search-bar">
         <div class="forms-title">Checkride Forms</div>
-        <form class="search-form">
+        <form class="search-form" style="margin-right: 20px;">
             <mat-form-field class="search-field">
                 <mat-label>Search By Name</mat-label>
                 <input [formControl]="searchControl" matInput>
                 <mat-icon matSuffix>search</mat-icon>
             </mat-form-field>
         </form>
-        <form class="search-form" style="margin-right: 10px;">
+        <form class="search-form">
             <mat-form-field class="search-field">
                 <mat-label>Filter By Status</mat-label>
                 <mat-select [formControl]="statusSearchControl">
@@ -19,6 +19,11 @@
                 </mat-select>
             </mat-form-field>
         </form>
+        <button mat-button class="text-button"
+            *ngIf="(userService.currentUser === 'IP') || (userService.currentUser === 'ADMIN')">
+            <i class="material-icons">add</i>
+            Create New Form
+        </button>
     </div>
     <div class="form-block">
 
@@ -26,7 +31,7 @@
             <div class="form-relative-wrapper">
                 <div class="form-header form-row">
                     <div style="border-top-left-radius: 4px;">Student</div>
-                    <div>Form Details</div>
+                    <div>Form Status</div>
                     <div>Actions</div>
                     <div style="border-top-right-radius: 4px;"></div>
                 </div>
@@ -36,22 +41,26 @@
                             'pending-form' : form.status === 'pending', 
                             'completed-form' : form.status === 'completed'}">
                             <div class="row-spine">{{form.studentName}}</div>
-                            <div>{{form.details}}</div>
-                            <div>
+                            <div class="bold-item">{{form.formatStatus}}</div>
+                            <div class="button-box">
                                 <button mat-icon-button class="action-button" matTooltip="Fill Out and Submit"
-                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    matTooltipPosition="below" matTooltipShowDelay="0"
+                                    *ngIf="(userService.currentUser === 'IP') || (userService.currentUser === 'ADMIN')">
                                     <i class="material-icons">edit_square</i>
                                 </button>
                                 <button mat-icon-button class="action-button" matTooltip="Approve"
-                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    matTooltipPosition="below" matTooltipShowDelay="0"
+                                    *ngIf="(userService.currentUser === 'TM') || (userService.currentUser === 'RO') || (userService.currentUser === 'ADMIN')">
                                     <i class="material-icons">done_all</i>
                                 </button>
                                 <button mat-icon-button class="action-button" matTooltip="Give Marks"
-                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    matTooltipPosition="below" matTooltipShowDelay="0"
+                                    *ngIf="(userService.currentUser === 'CI') || (userService.currentUser === 'ADMIN')">
                                     <i class="material-icons">rule</i>
                                 </button>
                                 <button mat-icon-button class="action-button" matTooltip="View Availability"
-                                    matTooltipPosition="below" matTooltipShowDelay="0">
+                                    matTooltipPosition="below" matTooltipShowDelay="0"
+                                    *ngIf="userService.currentUser !== 'RO'">
                                     <i class="material-icons">calendar_month</i>
                                 </button>
                                 <button mat-icon-button class="action-button" matTooltip="Export to PDF"

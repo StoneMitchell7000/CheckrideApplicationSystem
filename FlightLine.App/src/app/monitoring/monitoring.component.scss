@@ -9,7 +9,7 @@
 .search-form {
     display: inline-block;
     float: right;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .search-field {
@@ -40,7 +40,7 @@
 }
 
 .form-header {
-    grid-template-columns: 2fr 3fr 215px 1em !important;
+    grid-template-columns: 3fr 2fr 253px 1em !important;
 }
 
 .form-header div {
@@ -57,7 +57,7 @@
     height: min-content;
     width: 100%;
     grid-template-rows: min-content;
-    grid-template-columns: 2fr 3fr 215px;
+    grid-template-columns: 3fr 2fr 253px;
     column-gap: 3px;
     margin-bottom: 3px;
 }
@@ -110,8 +110,8 @@
     border-radius: 4px;
     background-color: #03539e;
     color: white;
-    margin-right: 3px;
-    margin-left: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
     height: 35px;
     width: 35px;
     padding: 5.5px 1px 0 0px;
@@ -131,7 +131,8 @@
     background-color: rgb(208, 229, 198);
 }
 
-.row-spine {
+.row-spine,
+.bold-item {
     font-weight: bold;
     padding-top: 13px !important;
 }
@@ -146,4 +147,21 @@
 
 .completed-form .row-spine {
     border-left: solid 6px rgb(97, 208, 46);
+}
+
+.text-button {
+    background-color: #ffcb06;
+    -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+    filter: drop-shadow(5px 5px 5px #00000059);
+    font-weight: bold;
+    float: right;
+    margin-right: 15px;
+    margin-top: 9px;
+    height: 56px;
+    padding-left: 5px;
+}
+
+.button-box {
+    display: flex;
+    justify-content: center;
 }

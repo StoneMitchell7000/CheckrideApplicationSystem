@@ -4,6 +4,7 @@ import { NgProgress, NgProgressRef } from 'ngx-progressbar';
 import { debounceTime } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { CheckrideForm } from '../models/checkride-form';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-monitoring',
@@ -21,7 +22,8 @@ export class MonitoringComponent implements OnInit {
 
   constructor(
     private progressService: NgProgress,
-    private dataService: DataService
+    private dataService: DataService,
+    public userService: UserService
   ) {
     this.progress = this.progressService.ref('myProgress');
   }
@@ -65,7 +67,7 @@ export class MonitoringComponent implements OnInit {
     } else if (this.nameSearch.trim() === '') {
       const statusRegex = new RegExp(this.statusSearch, 'i');
       if (this.checkrideForms) {
-        this.filteredForms = this.checkrideForms.filter(x => x.studentName.match(statusRegex));
+        this.filteredForms = this.checkrideForms.filter(x => x.status.match(statusRegex));
       }
     } else if ((this.statusSearch === '') || (this.statusSearch === 'none')) {
       const nameRegex = new RegExp(this.nameSearch, 'i');
@@ -77,10 +79,9 @@ export class MonitoringComponent implements OnInit {
       const statusRegex = new RegExp(this.statusSearch, 'i');
       if (this.checkrideForms) {
         this.filteredForms = this.checkrideForms.filter(x => x.studentName.match(nameRegex));
-        this.filteredForms = this.checkrideForms.filter(x => x.studentName.match(statusRegex));
+        this.filteredForms = this.filteredForms.filter(x => x.status.match(statusRegex));
       }
     }
-    console.log(this.filteredForms);
   }
 
 }
