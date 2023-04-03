@@ -5,6 +5,7 @@ import { debounceTime } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { CheckrideForm } from '../models/checkride-form';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-monitoring',
@@ -23,7 +24,8 @@ export class MonitoringComponent implements OnInit {
   constructor(
     private progressService: NgProgress,
     private dataService: DataService,
-    public userService: UserService
+    public userService: UserService,
+    private router: Router
   ) {
     this.progress = this.progressService.ref('myProgress');
   }
@@ -82,6 +84,10 @@ export class MonitoringComponent implements OnInit {
         this.filteredForms = this.filteredForms.filter(x => x.status.match(statusRegex));
       }
     }
+  }
+
+  openApproval(form: CheckrideForm) {
+    this.router.navigate(['/' + form.checkrideId.toString() + '/approval']);
   }
 
 }
