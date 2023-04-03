@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { NgProgress, NgProgressRef } from 'ngx-progressbar';
+import { debounceTime } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { CheckrideForm } from '../models/checkride-form';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-monitoring',
@@ -12,10 +15,15 @@ export class MonitoringComponent implements OnInit {
   progress: NgProgressRef;
   checkrideForms: CheckrideForm[] = new Array();
   filteredForms: CheckrideForm[] = new Array();
+  searchControl = new FormControl();
+  statusSearchControl = new FormControl();
+  nameSearch = '';
+  statusSearch = '';
 
   constructor(
     private progressService: NgProgress,
-    private dataService: DataService
+    private dataService: DataService,
+    public userService: UserService
   ) {
     this.progress = this.progressService.ref('myProgress');
   }
@@ -23,23 +31,23 @@ export class MonitoringComponent implements OnInit {
   ngOnInit(): void {
     this.loadForms();
 
-    // this.searchControl.valueChanges
-    //   .pipe(
-    //     debounceTime(500)
-    //   )
-    //   .subscribe(resp => {
-    //     this.nameSearch = resp;
-    //     this.search();
-    //   });
+    this.searchControl.valueChanges
+      .pipe(
+        debounceTime(500)
+      )
+      .subscribe(resp => {
+        this.nameSearch = resp;
+        this.search();
+      });
 
-    // this.phoneSearchControl.valueChanges
-    //   .pipe(
-    //     debounceTime(500)
-    //   )
-    //   .subscribe(resp => {
-    //     this.phoneSearch = resp;
-    //     this.search();
-    //   });
+    this.statusSearchControl.valueChanges
+      .pipe(
+        debounceTime(500)
+      )
+      .subscribe(resp => {
+        this.statusSearch = resp;
+        this.search();
+      });
   }
 
   loadForms(): void {
@@ -54,28 +62,26 @@ export class MonitoringComponent implements OnInit {
   }
 
   search(): void {
-    this.filteredForms = this.checkrideForms;
-    console.log(this.filteredForms);
-    // if (this.nameSearch.trim() === '' && this.phoneSearch.trim() === '') {
-    //   this.filteredPatients = this.patients;
-    // } else if (this.nameSearch.trim() === '') {
-    //   const phoneRegex = new RegExp(this.phoneSearch, 'i');
-    //   if (this.patients) {
-    //     this.filteredPatients = this.patients.filter(x => x.phone && x.phone.toString().match(phoneRegex));
-    //   }
-    // } else if (this.phoneSearch.trim() === '') {
-    //   const nameRegex = new RegExp(this.nameSearch, 'i');
-    //   if (this.patients) {
-    //     this.filteredPatients = this.patients.filter(x => x.fullName.match(nameRegex) && x.firstName && x.lastName);
-    //   }
-    // } else {
-    //   const nameRegex = new RegExp(this.nameSearch, 'i');
-    //   const phoneRegex = new RegExp(this.phoneSearch, 'i');
-    //   if (this.patients) {
-    //     this.filteredPatients = this.patients.filter(x => x.fullName.match(nameRegex) && x.firstName && x.lastName);
-    //     this.filteredPatients = this.filteredPatients.filter(y => y.phone && y.phone.toString().match(phoneRegex));
-    //   }
-    // }
+    if (this.nameSearch.trim() === '' && ((this.statusSearch === '') || (this.statusSearch === 'none'))) {
+      this.filteredForms = this.checkrideForms;
+    } else if (this.nameSearch.trim() === '') {
+      const statusRegex = new RegExp(this.statusSearch, 'i');
+      if (this.checkrideForms) {
+        this.filteredForms = this.checkrideForms.filter(x => x.status.match(statusRegex));
+      }
+    } else if ((this.statusSearch === '') || (this.statusSearch === 'none')) {
+      const nameRegex = new RegExp(this.nameSearch, 'i');
+      if (this.checkrideForms) {
+        this.filteredForms = this.checkrideForms.filter(x => x.studentName.match(nameRegex));
+      }
+    } else {
+      const nameRegex = new RegExp(this.nameSearch, 'i');
+      const statusRegex = new RegExp(this.statusSearch, 'i');
+      if (this.checkrideForms) {
+        this.filteredForms = this.checkrideForms.filter(x => x.studentName.match(nameRegex));
+        this.filteredForms = this.filteredForms.filter(x => x.status.match(statusRegex));
+      }
+    }
   }
 
 }

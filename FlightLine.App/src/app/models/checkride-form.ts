@@ -14,4 +14,10 @@ export class CheckrideForm {
         this.details = obj && obj.details || obj.details || null;
         this.dateCreated = obj && obj.date_created || obj.dateCreated || null;
     }
+
+    get formatStatus(): any {
+        if (this.status) {
+            return this.status.charAt(0).toUpperCase() + this.status.slice(1);
+        }
+    }
 }
