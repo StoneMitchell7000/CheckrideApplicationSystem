@@ -1,10 +1,152 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$md-primary: (
+  50: #ffcb06,
+  100: #ffcb06,
+  200: #ffcb06,
+  300: #ffcb06,
+  400: #ffcb06,
+  500: #ffcb06,
+  600: #ffcb06,
+  700: #ffcb06,
+  800: #ffcb06,
+  900: #ffcb06,
+  A100: #ffcb06,
+  A200: #ffcb06,
+  A400: #ffcb06,
+  A700: #ffcb06,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$md-accent: (
+  50: #03539e,
+  100: #03539e,
+  200: #03539e,
+  300: #03539e,
+  400: #03539e,
+  500: #03539e,
+  600: #03539e,
+  700: #03539e,
+  800: #03539e,
+  900: #03539e,
+  A100: #03539e,
+  A200: #03539e,
+  A400: #03539e,
+  A700: #03539e,
+  contrast: (
+    50: #ffffff,
+    100: #ffffff,
+    200: #ffffff,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$md-warn: (
+  50: #fcf2e7,
+  100: #f8dec3,
+  200: #f3c89c,
+  300: #eeb274,
+  400: #eaa256,
+  500: #e69138,
+  600: #e38932,
+  700: #df7e2b,
+  800: #db7424,
+  900: #d56217,
+  A100: #ffffff,
+  A200: #ffe3d4,
+  A400: #ffc3a1,
+  A700: #ffb287,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$md-error: (
+  50: #f9e0e0,
+  100: #f0b3b3,
+  200: #e68080,
+  300: #db4d4d,
+  400: #d42626,
+  500: #cc0000,
+  600: #c70000,
+  700: #c00000,
+  800: #b90000,
+  900: #ad0000,
+  A100: #ffd7d7,
+  A200: #ffa4a4,
+  A400: #ff7171,
+  A700: #ff5858,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$my-primary: mat.define-palette($md-primary, 500);
+$my-accent: mat.define-palette($md-accent, A200, A100, A400);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-theme);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-// .mat-mdc-icon-button .mat-mdc-button-ripple,
-// .mat-mdc-icon-button .mat-mdc-button-persistent-ripple,
-// .mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before {
-//     border-radius: 4px !important;
-// }
