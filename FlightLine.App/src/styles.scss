@@ -2,7 +2,7 @@
 
 @include mat.core();
 
-$md-primary: (
+$md-accent: (
   50: #ffcb06,
   100: #ffcb06,
   200: #ffcb06,
@@ -35,7 +35,7 @@ $md-primary: (
   ),
 );
 
-$md-accent: (
+$md-primary: (
   50: #03539e,
   100: #03539e,
   200: #03539e,

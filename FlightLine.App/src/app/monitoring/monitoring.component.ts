@@ -19,7 +19,7 @@ export class MonitoringComponent implements OnInit {
   searchControl = new FormControl();
   statusSearchControl = new FormControl();
   nameSearch = '';
-  statusSearch = '';
+  statusSearch: string[] = [];
 
   constructor(
     private progressService: NgProgress,
@@ -59,29 +59,50 @@ export class MonitoringComponent implements OnInit {
       // this.checkrideForms = resp.msg;
       this.checkrideForms = resp;
       this.progress.complete();
+
+      if (this.userService.currentUser === "IP") {
+        this.statusSearch = ['new'];
+      } else if (this.userService.currentUser === "CI") {
+        this.statusSearch = ['fully approved', 'scheduled'];
+      } else if (this.userService.currentUser === "TM") {
+        this.statusSearch = ['new'];
+      } else if (this.userService.currentUser === "FO") {
+        this.statusSearch = ['new', 'partially approved', 'fully approved'];
+      } else if (this.userService.currentUser === "RO") {
+        this.statusSearch = ['partially approved'];
+      }
+
       this.search();
     });
   }
 
   search(): void {
-    if (this.nameSearch.trim() === '' && ((this.statusSearch === '') || (this.statusSearch === 'none'))) {
+    if (this.nameSearch.trim() === '' && (this.statusSearch.length === 0)) {
       this.filteredForms = this.checkrideForms;
     } else if (this.nameSearch.trim() === '') {
-      const statusRegex = new RegExp(this.statusSearch, 'i');
       if (this.checkrideForms) {
-        this.filteredForms = this.checkrideForms.filter(x => x.status.match(statusRegex));
+        let tempForms: CheckrideForm[] = new Array();
+        this.statusSearch.forEach(term => {
+          let statusRegex = new RegExp(term, 'i');
+          tempForms = tempForms.concat(this.checkrideForms.filter(x => x.status.match(statusRegex)));
+        });
+        this.filteredForms = tempForms.sort((a, b) => a.checkrideId - b.checkrideId);
       }
-    } else if ((this.statusSearch === '') || (this.statusSearch === 'none')) {
-      const nameRegex = new RegExp(this.nameSearch, 'i');
+    } else if (this.statusSearch.length === 0) {
       if (this.checkrideForms) {
+        const nameRegex = new RegExp(this.nameSearch, 'i');
         this.filteredForms = this.checkrideForms.filter(x => x.studentName.match(nameRegex));
       }
     } else {
-      const nameRegex = new RegExp(this.nameSearch, 'i');
-      const statusRegex = new RegExp(this.statusSearch, 'i');
       if (this.checkrideForms) {
-        this.filteredForms = this.checkrideForms.filter(x => x.studentName.match(nameRegex));
-        this.filteredForms = this.filteredForms.filter(x => x.status.match(statusRegex));
+        const nameRegex = new RegExp(this.nameSearch, 'i');
+        let tempForms: CheckrideForm[] = new Array();
+        this.statusSearch.forEach(term => {
+          let statusRegex = new RegExp(term, 'i');
+          tempForms = tempForms.concat(this.checkrideForms.filter(x => x.status.match(statusRegex)));
+        });
+        this.filteredForms = tempForms.sort((a, b) => a.checkrideId - b.checkrideId);
+        this.filteredForms = this.filteredForms.filter(x => x.studentName.match(nameRegex));
       }
     }
   }
