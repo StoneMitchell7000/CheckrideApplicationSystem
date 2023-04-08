@@ -111,4 +111,8 @@ export class MonitoringComponent implements OnInit {
     this.router.navigate(['/' + form.checkrideId.toString() + '/approval']);
   }
 
+  openAvailability(form: CheckrideForm) {
+    this.router.navigate(['/' + form.studentId.toString() + '/availability']);
+  }
+
 }

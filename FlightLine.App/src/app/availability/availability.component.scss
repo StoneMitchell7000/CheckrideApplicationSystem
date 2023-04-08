@@ -1,0 +1,45 @@
+.av-grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 1fr;
+}
+
+.back-button {
+    background-color: #03539e;
+    -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+    filter: drop-shadow(5px 5px 5px #00000059);
+    font-weight: bold;
+    // height: 56px;
+    color: white !important;
+    vertical-align: top;
+    margin-top: 21px;
+    margin-left: 20px;
+}
+
+.av-title {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 28px;
+    font-weight: bold;
+    font-size: 23px;
+    color: #03539e;
+    -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+    filter: drop-shadow(5px 5px 5px #00000059);
+}
+
+.calendar-grid {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 20px;
+    right: 20px;
+
+    display: grid;
+    // AAAAAAAAAAAAAAA 
+}
+
+.calendar-container {
+    position: relative;
+}

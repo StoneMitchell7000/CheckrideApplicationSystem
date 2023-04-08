@@ -63,7 +63,7 @@
                                 </button>
                                 <button mat-icon-button class="action-button" matTooltip="View Availability"
                                     matTooltipPosition="below" matTooltipShowDelay="0"
-                                    *ngIf="userService.currentUser !== 'RO'">
+                                    *ngIf="userService.currentUser !== 'RO'" (click)="openAvailability(form)">
                                     <i class="material-icons">calendar_month</i>
                                 </button>
                                 <button mat-icon-button class="action-button" matTooltip="Export to PDF"
