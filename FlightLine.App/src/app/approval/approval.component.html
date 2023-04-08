@@ -1,1 +1,45 @@
-<p>approval works!</p>
+<div class="approval-grid animated fadeIn">
+    <div>
+        <button mat-button class="back-button" (click)="goBack()">
+            <i class="material-icons">arrow_back_ios</i>
+            Back
+        </button>
+        <div class="approval-title">Form Approval</div>
+    </div>
+    <div class="form-container">
+        <!-- <img src="../../../assets/brandon.gif" class="placeholder-gif"> -->
+    </div>
+    <div class="approval-subgrid-lol">
+        <div class="center-items">
+
+            <button mat-button class="sig-button">
+                <i class="material-icons" style="margin-right: 4px;">open_in_new</i>
+                View / Approve In ETA
+            </button>
+
+            <mat-form-field class="signature-field">
+                <mat-label>Signature</mat-label>
+                <!-- <mat-icon matPrefix>close</mat-icon> -->
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="signature-field">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" readonly [(ngModel)]="currentDate">
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+        <div class="remarks-container"
+            *ngIf="(userService.currentUser === 'TM') || (userService.currentUser === 'ADMIN')">
+            <div class="remarks-label">Remarks</div>
+            <textarea matInput class="remarks-area"></textarea>
+        </div>
+        <div class="center-items">
+            <button mat-button class="done-button">
+                <i class="material-icons" style="margin-right: 2px;">done</i>
+                Done
+            </button>
+            <div class="helper-text">Click 'Done' to complete approval and update form.</div>
+        </div>
+    </div>
+</div>

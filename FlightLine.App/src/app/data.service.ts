@@ -35,30 +35,46 @@ export class DataService {
       temp.checkride_id++;
       temp.student_id++;
       temp.student_name = 'Testy Testerson ' + temp.student_id.toString();
-      if (i < 5) {
+      if (i < 3) {
         temp.status = 'new';
-      } else if (i < 10) {
-        temp.status = 'pending';
+      } else if (i < 6) {
+        temp.status = 'partially approved';
+      } else if (i < 9) {
+        temp.status = 'fully approved';
+      } else if (i < 12) {
+        temp.status = 'scheduled';
       } else if (i < 15) {
-        temp.status = 'completed';
-      } else if (i < 20) {
+        temp.status = 'archived';
+      } else if (i < 18) {
         temp.status = 'new';
-      } else if (i < 25) {
-        temp.status = 'pending';
+      } else if (i < 21) {
+        temp.status = 'partially approved';
+      } else if (i < 24) {
+        temp.status = 'fully approved';
+      } else if (i < 27) {
+        temp.status = 'scheduled';
       } else if (i < 30) {
-        temp.status = 'completed';
-      } else if (i < 35) {
+        temp.status = 'archived';
+      } else if (i < 33) {
         temp.status = 'new';
-      } else if (i < 40) {
-        temp.status = 'pending';
+      } else if (i < 36) {
+        temp.status = 'partially approved';
+      } else if (i < 39) {
+        temp.status = 'fully approved';
+      } else if (i < 42) {
+        temp.status = 'scheduled';
       } else if (i < 45) {
-        temp.status = 'completed';
-      } else if (i < 50) {
+        temp.status = 'archived';
+      } else if (i < 48) {
         temp.status = 'new';
-      } else if (i < 55) {
-        temp.status = 'pending';
+      } else if (i < 51) {
+        temp.status = 'partially approved';
+      } else if (i < 54) {
+        temp.status = 'fully approved';
+      } else if (i < 57) {
+        temp.status = 'scheduled';
       } else {
-        temp.status = 'completed';
+        temp.status = 'archived';
       }
       tempForms.push(new CheckrideForm(temp));
     }

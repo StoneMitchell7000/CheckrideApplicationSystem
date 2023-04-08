@@ -10,7 +10,7 @@ import { AvailabilityComponent } from './availability/availability.component';
 import { FormComponent } from './form/form.component';
 import { LoginComponent } from './login/login.component';
 import { MatButtonModule } from '@angular/material/button';
-import { MatRippleModule } from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
@@ -22,7 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AccountDialogComponent } from './account-dialog/account-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatSnackBarModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

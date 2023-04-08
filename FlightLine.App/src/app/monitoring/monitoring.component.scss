@@ -123,13 +123,19 @@
     background-color: rgb(255, 222, 222);
 }
 
-.pending-form div {
+.partial-form div {
     background-color: #fff4cd;
 }
 
-.completed-form div {
+.full-form div {
     background-color: rgb(208, 229, 198);
 }
+
+.scheduled-form div {
+    background-color: #c9dbec;
+}
+
+
 
 .row-spine,
 .bold-item {
@@ -141,12 +147,20 @@
     border-left: solid 6px rgb(255, 83, 83);
 }
 
-.pending-form .row-spine {
+.partial-form .row-spine {
     border-left: solid 6px #ffcb06;
 }
 
-.completed-form .row-spine {
+.full-form .row-spine {
     border-left: solid 6px rgb(97, 208, 46);
+}
+
+.scheduled-form .row-spine {
+    border-left: solid 6px #03539e;
+}
+
+.archived-form .row-spine {
+    border-left: solid 6px #9e9e9e;
 }
 
 .text-button {
