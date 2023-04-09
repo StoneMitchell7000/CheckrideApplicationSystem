@@ -1,5 +1,4 @@
-<!-- animated fadeIn -->
-<div class="av-grid">
+<div class="av-grid animated fadeIn">
     <div>
         <button mat-button class="back-button" (click)="goBack()">
             <i class="material-icons">arrow_back_ios</i>
@@ -8,6 +7,36 @@
         <div class="av-title">Student Availability</div>
     </div>
     <div class="calendar-container">
-        <div class="calendar-grid"></div>
+        <div class="calendar-grid">
+            <div class="day-labels-grid">
+                <div></div>
+                <div class="day-divider"></div>
+                <div class="day-box">SUN</div>
+                <div class="day-divider"></div>
+                <div class="day-box">MON</div>
+                <div class="day-divider"></div>
+                <div class="day-box">TUE</div>
+                <div class="day-divider"></div>
+                <div class="day-box">WED</div>
+                <div class="day-divider"></div>
+                <div class="day-box">THU</div>
+                <div class="day-divider"></div>
+                <div class="day-box">FRI</div>
+                <div class="day-divider"></div>
+                <div class="day-box">SAT</div>
+                <div class="top-scroll-spacer">
+                    <div class="vertical-sussy-overlapper"></div>
+                </div>
+            </div>
+            <div class="calendar-scroll-grid">
+                <div class="legend-bar">
+                    
+                </div>
+                <div *ngFor="let i of array168" class="hour-filler"></div>
+                <div class="scroll-spacer">
+                    <div class="horizontal-sussy-overlapper"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -8,14 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./availability.component.scss']
 })
 export class AvailabilityComponent implements OnInit {
+  array168: number[] = new Array();
 
   constructor(
     public userService: UserService,
     private router: Router
-  ) { }
+  ) {
+    for (let i = 1; i <= 168; i++) {
+      this.array168.push(i);
+    }
+  }
 
   ngOnInit(): void {
-
   }
 
   goBack(): void {
