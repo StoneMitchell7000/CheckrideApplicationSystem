@@ -73,14 +73,28 @@
     grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
     gap: 1px 1px;
     overflow-y: scroll;
+    position: relative;
 }
 
-.legend-bar {
+.hour-bar {
     background-color: white;
     grid-area: 1 / 1 / span 24 / span 1;
     display: grid;
-    
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px 1px 50px;
 }
+
+.hour-divider {
+    border-right: #b5b5b5 solid 25px;
+}
+
+.hour-label {
+    font-weight: bold;
+    font-size: smaller;
+    color: #5e5e5e;
+    padding-top: 41px;
+}
+
 
 .hour-filler {
     background-color: white;
@@ -121,4 +135,78 @@
 
 .calendar-scroll-grid::-webkit-scrollbar-track {
     background-color: white;
+}
+
+.av-legend {
+    float: right;
+    color: #5e5e5e;
+    font-weight: bold;
+    margin: 22px 40px 0 0;
+}
+
+.legend-icon {
+    color: #03539e;
+    -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+    filter: drop-shadow(5px 5px 5px #00000059);
+    margin-top: 8px;
+    vertical-align: bottom;
+}
+
+.av-block-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 65px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 7px;
+    grid-template-rows: repeat(48, 25.5px);
+    gap: 0px 1px;
+}
+
+.unavailable-block {
+    background-color: #03539e;
+    border-radius: 6px;
+    color: white;
+    font-size: smaller;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: #ffcb06;
+    -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+    filter: drop-shadow(5px 5px 5px #00000059);
+    padding: 2px 4px;
+    transition: .1s;
+}
+
+.unavailable-block:hover {
+    border: #ffcb06 solid 4px;
+    -webkit-filter: drop-shadow(15px 15px 15px #00000059);
+    filter: drop-shadow(15px 15px 15px #00000059);
+}
+
+.hard-1 {
+    grid-area: 29 / 3 / span 4 / span 1;
+}
+
+.hard-2 {
+    grid-area: 22 / 4 / span 6 / span 1;
+}
+
+.hard-3 {
+    grid-area: 31 / 4 / span 3 / span 1;
+}
+
+.hard-4 {
+    grid-area: 29 / 5 / span 4 / span 1;
+}
+
+.hard-5 {
+    grid-area: 19 / 6 / span 9 / span 1;
+}
+
+.hard-6 {
+    grid-area: 31 / 6 / span 3 / span 1;
+}
+
+.hard-7 {
+    grid-area: 29 / 7 / span 4 / span 1;
 }
