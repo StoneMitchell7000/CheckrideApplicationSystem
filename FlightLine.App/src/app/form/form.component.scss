@@ -1,0 +1,33 @@
+.form {
+}
+
+.page-one {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.student-information {
+  display: flex;
+  flex-direction: row;
+}
+
+.student-stuff {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.instructor-stuff {
+  display: flex;
+  flex-direction: column;
+}
+
+.first-paragraph {
+  padding-bottom: 20px;
+}

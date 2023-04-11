@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,13 +14,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { NgProgressModule } from "ngx-progressbar";
-import { NgProgressHttpModule } from "ngx-progressbar/http";
+import { NgProgressModule } from 'ngx-progressbar';
+import { NgProgressHttpModule } from 'ngx-progressbar/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AccountDialogComponent } from './account-dialog/account-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     AvailabilityComponent,
     FormComponent,
     LoginComponent,
-    AccountDialogComponent
+    AccountDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,9 +48,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     NgProgressHttpModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
