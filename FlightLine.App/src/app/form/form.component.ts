@@ -1,23 +1,15 @@
 import { Component } from '@angular/core';
+import { Form } from './form';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   styleUrls: ['./form.component.scss'],
-  selector: 'form-field-appearance-example',
+  selector: 'app-form-form',
   templateUrl: 'form.component.html',
 })
 export class FormComponent {
-  contactForm: FormGroup;
-
-  constructor(private formBuilder: FormBuilder) {
-    this.contactForm = this.formBuilder.group({
-      name: '',
-      studentNumber: '',
-      phoneNumber: '',
-    });
-  }
-
+  submitted = false;
   onSubmit() {
-    console.log(this.contactForm.value);
+    this.submitted = true;
   }
 }
