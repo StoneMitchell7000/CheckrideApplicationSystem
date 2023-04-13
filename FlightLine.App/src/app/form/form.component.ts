@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Form } from './form';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   styleUrls: ['./form.component.scss'],
@@ -8,8 +9,5 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: 'form.component.html',
 })
 export class FormComponent {
-  submitted = false;
-  onSubmit() {
-    this.submitted = true;
-  }
+  panelOpenState = false;
 }

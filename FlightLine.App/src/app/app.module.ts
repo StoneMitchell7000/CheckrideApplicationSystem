@@ -22,6 +22,7 @@ import { AccountDialogComponent } from './account-dialog/account-dialog.componen
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSnackBarModule,
     MatDatepickerModule,
     ReactiveFormsModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
