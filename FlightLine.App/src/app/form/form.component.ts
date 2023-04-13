@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { Form } from './form';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
+  selector: 'app-form-form',
+  templateUrl: 'form.component.html',
 })
 export class FormComponent {
-
+  panelOpenState = false;
 }
