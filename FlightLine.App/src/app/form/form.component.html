@@ -1,3 +1,39 @@
+<head>
+  <ng-template #checkSchedule>
+    <mat-form-field appearance="outline" class="custom-form-field">
+      <mat-label>Date</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="custom-form-field">
+      <mat-label>Time</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="custom-form-field">
+      <mat-label>IP Name</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="custom-form-field">
+      <mat-label>Type</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="custom-form-field">
+      <mat-label>Unit</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="custom-form-field">
+      <mat-label>HRS</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="custom-form-field">
+      <mat-label>A/C</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="custom-form-field">
+      <mat-label>Result</mat-label>
+      <input matInput />
+    </mat-form-field>
+  </ng-template>
+</head>
 <div class="form">
   <h1 class="title">Virtual Stage Check Request Card</h1>
   <div class="container">
@@ -7,64 +43,71 @@
           <div class="left-side">
             <h2>Student Information</h2>
             <h3>Student Availability:</h3>
-            <p>I have reviewed my current Flight Ops availability and it is correct. I agree to be
-              scheduled for this Stage/EOC Check during those times. If my availability changes after today, it is my
-              responsibility to personally update my availability on the Flight Ops website by 1200 at least 2 business
-              days
-              prior in accordance with the policies in the FOM</p>
+            <p>
+              I have reviewed my current Flight Ops availability and it is
+              correct. I agree to be scheduled for this Stage/EOC Check during
+              those times. If my availability changes after today, it is my
+              responsibility to personally update my availability on the Flight
+              Ops website by 1200 at least 2 business days prior in accordance
+              with the policies in the FOM
+            </p>
             <div class="student-information">
               <div class="student-stuff">
                 <mat-form-field appearance="outline">
                   <mat-label> Student Name</mat-label>
-                  <input matInput/>
+                  <input matInput />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>Student ID/Number</mat-label>
-                  <input matInput/>
+                  <input matInput />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>Phone Number</mat-label>
-                  <input matInput/>
+                  <input matInput />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>Sent to Schedule</mat-label>
-                  <input matInput/>
+                  <input matInput />
                 </mat-form-field>
               </div>
               <div class="instructor-stuff">
                 <mat-form-field appearance="outline">
                   <mat-label>Instructor Name</mat-label>
-                  <input matInput/>
+                  <input matInput />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>Team Number</mat-label>
-                  <input matInput/>
+                  <input matInput />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>Last Activity Date</mat-label>
-                  <input matInput/>
+                  <input matInput />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>TM Approval</mat-label>
-                  <input matInput/>
+                  <input matInput />
                 </mat-form-field>
               </div>
             </div>
             <mat-form-field>
               <textarea matInput placeholder="Remarks..."></textarea>
-              <input matInput/>
+              <input matInput />
             </mat-form-field>
           </div>
           <div class="right-side">
             <mat-accordion>
-              <mat-expansion-panel (closed)="panelOpenState = false"
-                                   (opened)="panelOpenState = true">
+              <mat-expansion-panel
+                (closed)="panelOpenState = false"
+                (opened)="panelOpenState = true"
+              >
                 <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Items Required
-                  </mat-panel-title>
+                  <mat-panel-title> Items Required </mat-panel-title>
                   <mat-panel-description>
-                    {{panelOpenState ? 'Close List' : 'Click for a list of minimum items for Stage Check/EOC-'}}
+                    {{
+                      panelOpenState
+                        ? "Close List"
+                        : "Click for a list of minimum items for Stage Check/EOC-"
+                    }}
                   </mat-panel-description>
                 </mat-expansion-panel-header>
                 <ul class="items-list">
@@ -72,325 +115,146 @@
                   <li>Current Medical Certificate</li>
                   <li>Current Student Pilot Certificate</li>
                   <li>Logbook</li>
-                  <li>Endorsements (Student Pilot Cert. & Logbook) required by 14 CFR Part61 for solo flight
+                  <li>
+                    Endorsements (Student Pilot Cert. & Logbook) required by 14
+                    CFR Part61 for solo flight
                   </li>
-                  <li>W&B/Performance data sheet completed prior to pre-flight briefing</li>
-                  <li>Risk Assessment form completed prior to pre-flight briefing</li>
+                  <li>
+                    W&B/Performance data sheet completed prior to pre-flight
+                    briefing
+                  </li>
+                  <li>
+                    Risk Assessment form completed prior to pre-flight briefing
+                  </li>
                   <li>Current C-172S NAV III checklists</li>
                   <li>Current C-172S NAV III PIM</li>
                   <li>Current Phoenix Sectional</li>
                   <li>Current Southwest Chart Supplement</li>
-                  <li>Current Flight Operations Manual (for flight portion of stage check)</li>
+                  <li>
+                    Current Flight Operations Manual (for flight portion of
+                    stage check)
+                  </li>
                 </ul>
               </mat-expansion-panel>
             </mat-accordion>
             <div class="agreement">
-              <p>I have reviewed all of the items to be performed on this Stage/EOC Check and am prepared as of today to
-                accomplish each item to the standards stated in the ERAU Course Standards.</p>
-              <p>I have reviewed my current Flight Ops availability and it is correct. I agree to be scheduled for this
-                Stage/EOC Check during those times. If my availability changes after today, it is my responsibility to
-                personally update my availability on the Flight Ops website by 1200 at least 2 business days prior in
-                accordance with the policies in the FOM.</p>
-              <p>If I do not bring the above items or update my availability before being scheduled, I will be NO-SHOWED
-                for any and all activities scheduled.</p>
-              <p>I will monitor ETA to determine the POSTED time of my activities</p>
+              <p>
+                I have reviewed all of the items to be performed on this
+                Stage/EOC Check and am prepared as of today to accomplish each
+                item to the standards stated in the ERAU Course Standards.
+              </p>
+              <p>
+                I have reviewed my current Flight Ops availability and it is
+                correct. I agree to be scheduled for this Stage/EOC Check during
+                those times. If my availability changes after today, it is my
+                responsibility to personally update my availability on the
+                Flight Ops website by 1200 at least 2 business days prior in
+                accordance with the policies in the FOM.
+              </p>
+              <p>
+                If I do not bring the above items or update my availability
+                before being scheduled, I will be NO-SHOWED for any and all
+                activities scheduled.
+              </p>
+              <p>
+                I will monitor ETA to determine the POSTED time of my activities
+              </p>
               <h2>I HAVE READ AND AGREE TO ALL OF THE ABOVE STATEMENTS</h2>
             </div>
             <div class="signature">
               <mat-form-field appearance="outline">
-                <input matInput placeholder="Signature"/>
+                <input matInput placeholder="Signature" />
               </mat-form-field>
               <mat-form-field appearance="outline">
-                <input matInput placeholder="Date"/>
+                <input matInput placeholder="Date" />
               </mat-form-field>
             </div>
           </div>
-
         </div>
         <div class="second-row">
           <h2>Stage/EOC Check Schedule:</h2>
+
           <div class="according-to-him">
             <mat-accordion>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Row 1
-                  </mat-panel-title>
+                  <mat-panel-title> Row 1 </mat-panel-title>
                 </mat-expansion-panel-header>
-
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Date</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Time</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>IP Name</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Type</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Unit</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>HRS</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>A/C</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Result</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-
+                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
               </mat-expansion-panel>
             </mat-accordion>
 
             <mat-accordion>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Row 2
-                  </mat-panel-title>
-
+                  <mat-panel-title> Row 2 </mat-panel-title>
                 </mat-expansion-panel-header>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Date</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Time</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>IP Name</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Type</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Unit</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>HRS</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>A/C</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Result</mat-label>
-                  <input matInput/>
-                </mat-form-field>
+                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
               </mat-expansion-panel>
             </mat-accordion>
 
             <mat-accordion>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Row 3
-                  </mat-panel-title>
+                  <mat-panel-title> Row 3 </mat-panel-title>
                 </mat-expansion-panel-header>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Date</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Time</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>IP Name</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Type</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Unit</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>HRS</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>A/C</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Result</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-
-              </mat-expansion-panel>
-
-            </mat-accordion>
-            <mat-accordion>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Row 4
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Date</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Time</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>IP Name</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Type</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Unit</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>HRS</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>A/C</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Result</mat-label>
-                  <input matInput/>
-                </mat-form-field>
+                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
               </mat-expansion-panel>
             </mat-accordion>
 
             <mat-accordion>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Row 5
-                  </mat-panel-title>
+                  <mat-panel-title> Row 4 </mat-panel-title>
                 </mat-expansion-panel-header>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Date</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Time</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>IP Name</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Type</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Unit</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>HRS</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>A/C</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Result</mat-label>
-                  <input matInput/>
-                </mat-form-field>
+                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
               </mat-expansion-panel>
             </mat-accordion>
 
             <mat-accordion>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Row 6
-                  </mat-panel-title>
+                  <mat-panel-title> Row 5 </mat-panel-title>
                 </mat-expansion-panel-header>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Date</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Time</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>IP Name</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Type</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Unit</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>HRS</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>A/C</mat-label>
-                  <input matInput/>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="custom-form-field">
-                  <mat-label>Result</mat-label>
-                  <input matInput/>
-                </mat-form-field>
+                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
               </mat-expansion-panel>
             </mat-accordion>
 
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title> Row 6 </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
+              </mat-expansion-panel>
+            </mat-accordion>
           </div>
         </div>
 
         <div class="third-row">
           <div class="ip-stuff">
             <mat-form-field appearance="outline">
-              <input matInput placeholder="IP Name"/>
+              <input matInput placeholder="IP Name" />
             </mat-form-field>
             <mat-form-field appearance="outline">
-              <input matInput placeholder="IP Signature"/>
+              <input matInput placeholder="IP Signature" />
             </mat-form-field>
             <mat-form-field appearance="outline">
-              <input matInput placeholder="Date"/>
+              <input matInput placeholder="Date" />
             </mat-form-field>
           </div>
 
           <div class="second-student-signature">
             <mat-form-field appearance="outline">
-              <input matInput placeholder="Student Signature"/>
+              <input matInput placeholder="Student Signature" />
             </mat-form-field>
             <mat-form-field appearance="outline">
-              <input matInput placeholder="Date"/>
+              <input matInput placeholder="Date" />
             </mat-form-field>
           </div>
-          <button class="submit-button" color="primary" mat-raised-button>Submit Form</button>
+          <button class="submit-button" color="primary" mat-raised-button>
+            Submit Form
+          </button>
         </div>
       </div>
     </form>
