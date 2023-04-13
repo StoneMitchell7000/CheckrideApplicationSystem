@@ -9,14 +9,15 @@
             </mat-form-field>
         </form>
         <form class="search-form">
-            <mat-form-field class="search-field" style="width: 205px;">
+            <mat-form-field class="search-field" style="width: 228px;">
                 <mat-label>Filter By Status</mat-label>
                 <mat-select [formControl]="statusSearchControl" multiple [ngModel]="statusSearch">
-                    <mat-option value="new">New</mat-option>
-                    <mat-option value="partially approved">Partially Approved</mat-option>
-                    <mat-option value="fully approved">Fully Approved</mat-option>
-                    <mat-option value="scheduled">Scheduled</mat-option>
-                    <mat-option value="archived">Archived</mat-option>
+                    <mat-option value="pending">Pending</mat-option>
+                    <mat-option value="active">Active</mat-option>
+                    <mat-option value="assigned">Assigned</mat-option>
+                    <mat-option value="partially scheduled">Partially scheduled</mat-option>
+                    <mat-option value="fully scheduled">Fully scheduled</mat-option>
+                    <mat-option value="complete">Complete</mat-option>
                 </mat-select>
             </mat-form-field>
         </form>
@@ -38,11 +39,12 @@
                 </div>
                 <div class="form-scroll-container">
                     <div *ngFor="let form of filteredForms">
-                        <div class="form-row animated fadeInUp" [ngClass]="{'new-form' : form.status === 'new', 
-                            'partial-form' : form.status === 'partially approved', 
-                            'full-form' : form.status === 'fully approved',
-                            'scheduled-form' : form.status === 'scheduled',
-                            'archived-form' : form.status === 'archived'}">
+                        <div class="form-row animated fadeInUp" [ngClass]="{'pending-form' : form.status === 'pending', 
+                            'active-form' : form.status === 'active', 
+                            'assigned-form' : form.status === 'assigned',
+                            'partially-scheduled-form' : form.status === 'partially scheduled',
+                            'fully-scheduled-form' : form.status === 'fully scheduled',
+                            'complete-form' : form.status === 'complete'}">
                             <div class="row-spine">{{form.studentName}}</div>
                             <div class="bold-item">{{form.formatStatus}}</div>
                             <div class="button-box">
