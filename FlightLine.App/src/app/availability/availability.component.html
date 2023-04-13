@@ -1,1 +1,104 @@
-<p>availability works!</p>
+<div class="av-grid animated fadeIn">
+    <div>
+        <button mat-button class="back-button" (click)="goBack()">
+            <i class="material-icons">arrow_back_ios</i>
+            Back
+        </button>
+        <div class="av-title">Student Availability</div>
+        <div class="av-legend">
+            <i class="material-icons legend-icon">circle</i>
+            : Unavailable
+        </div>
+    </div>
+    <div class="calendar-container">
+        <div class="calendar-grid">
+            <div class="day-labels-grid">
+                <div></div>
+                <div class="day-divider"></div>
+                <div class="day-box">SUN</div>
+                <div class="day-divider"></div>
+                <div class="day-box">MON</div>
+                <div class="day-divider"></div>
+                <div class="day-box">TUE</div>
+                <div class="day-divider"></div>
+                <div class="day-box">WED</div>
+                <div class="day-divider"></div>
+                <div class="day-box">THU</div>
+                <div class="day-divider"></div>
+                <div class="day-box">FRI</div>
+                <div class="day-divider"></div>
+                <div class="day-box">SAT</div>
+                <div class="top-scroll-spacer">
+                    <div class="vertical-sussy-overlapper"></div>
+                </div>
+            </div>
+            <div class="calendar-scroll-grid">
+                <div class="hour-bar">
+                    <div class="hour-label">1 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">2 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">3 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">4 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">5 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">6 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">7 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">8 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">9 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">10 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">11 AM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">12 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">1 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">2 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">3 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">4 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">5 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">6 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">7 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">8 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">9 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">10 PM</div>
+                    <div class="hour-divider"></div>
+                    <div class="hour-label">11 PM</div>
+                    <div class="hour-divider"></div>
+                </div>
+                <div *ngFor="let i of array168" class="hour-filler"></div>
+                <div class="scroll-spacer">
+                    <div class="horizontal-sussy-overlapper"></div>
+                </div>
+                <div class="av-block-grid">
+                    <div class="unavailable-block hard-1">2:00 PM - 4:00 PM</div>
+
+                    <div class="unavailable-block hard-2">10:30 AM - 1:30 PM</div>
+                    <div class="unavailable-block hard-3">3:00 PM - 4:30 PM</div>
+
+                    <div class="unavailable-block hard-4">2:00 PM - 4:00 PM</div>
+
+                    <div class="unavailable-block hard-5">9:00 AM - 1:30 PM</div>
+                    <div class="unavailable-block hard-6">3:00 PM - 4:30 PM</div>
+
+                    <div class="unavailable-block hard-7">2:00 PM - 4:00 PM</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

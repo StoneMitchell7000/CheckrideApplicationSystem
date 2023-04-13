@@ -61,15 +61,15 @@ export class MonitoringComponent implements OnInit {
       this.progress.complete();
 
       if (this.userService.currentUser === "IP") {
-        this.statusSearch = ['new'];
+        this.statusSearch = ['pending'];
       } else if (this.userService.currentUser === "CI") {
-        this.statusSearch = ['fully approved', 'scheduled'];
+        this.statusSearch = ['assigned', 'partially scheduled', 'fully scheduled'];
       } else if (this.userService.currentUser === "TM") {
-        this.statusSearch = ['new'];
+        this.statusSearch = ['pending'];
       } else if (this.userService.currentUser === "FO") {
-        this.statusSearch = ['new', 'partially approved', 'fully approved'];
+        this.statusSearch = ['active', 'assigned', 'partially scheduled', 'fully scheduled'];
       } else if (this.userService.currentUser === "RO") {
-        this.statusSearch = ['partially approved'];
+        this.statusSearch = ['active'];
       }
 
       this.search();
@@ -109,6 +109,10 @@ export class MonitoringComponent implements OnInit {
 
   openApproval(form: CheckrideForm) {
     this.router.navigate(['/' + form.checkrideId.toString() + '/approval']);
+  }
+
+  openAvailability(form: CheckrideForm) {
+    this.router.navigate(['/' + form.studentId.toString() + '/availability']);
   }
 
 }
