@@ -1,9 +1,32 @@
 .form {
 }
 
-.title {
-  padding-top: 20px;
-  text-align: center;
+// .title {
+//   padding-top: 20px;
+//   text-align: center;
+// }
+
+.back-button {
+  background-color: #03539e;
+  -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+  filter: drop-shadow(5px 5px 5px #00000059);
+  font-weight: bold;
+  // height: 56px;
+  color: white !important;
+  vertical-align: top;
+  margin-top: 21px;
+  margin-left: 20px;
+}
+
+.form-title {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 28px;
+  font-weight: bold;
+  font-size: 23px;
+  color: #03539e;
+  -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+  filter: drop-shadow(5px 5px 5px #00000059);
 }
 
 .form-group {
@@ -129,4 +152,8 @@ li {
 
 .submit-button {
   width: 150px;
+}
+
+.asdf {
+  resize: none;
 }

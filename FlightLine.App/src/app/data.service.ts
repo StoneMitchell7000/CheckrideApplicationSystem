@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CheckrideForm } from './models/checkride-form';
+import { FormDetails } from './models/form-details';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,15 @@ export class DataService {
     }
     else {
       return of(this.dummyForms());
+    }
+  }
+
+  loadFormDetails(): Observable<any> {
+    if (environment.production) {
+      return this.httpClient.get(this.baseUrl + '/formdetails');
+    }
+    else {
+      return of(this.dummyDetails());
     }
   }
 
@@ -99,5 +109,9 @@ export class DataService {
       tempForms.push(new CheckrideForm(temp));
     }
     return tempForms;
+  }
+
+  dummyDetails(): any {
+    return new FormDetails({});
   }
 }

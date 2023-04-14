@@ -50,7 +50,7 @@
                             <div class="button-box">
                                 <button mat-icon-button class="action-button" matTooltip="Fill Out and Submit"
                                     matTooltipPosition="below" matTooltipShowDelay="0"
-                                    *ngIf="(userService.currentUser === 'IP') || (userService.currentUser === 'ADMIN')">
+                                    *ngIf="(userService.currentUser === 'IP') || (userService.currentUser === 'ADMIN')" (click)="openForm(form)">
                                     <i class="material-icons">edit_square</i>
                                 </button>
                                 <button mat-icon-button class="action-button" matTooltip="Approve"

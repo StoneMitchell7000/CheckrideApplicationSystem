@@ -1,43 +1,12 @@
-<head>
-  <ng-template #checkSchedule>
-    <mat-form-field appearance="outline" class="custom-form-field">
-      <mat-label>Date</mat-label>
-      <input matInput />
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="custom-form-field">
-      <mat-label>Time</mat-label>
-      <input matInput />
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="custom-form-field">
-      <mat-label>IP Name</mat-label>
-      <input matInput />
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="custom-form-field">
-      <mat-label>Type</mat-label>
-      <input matInput />
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="custom-form-field">
-      <mat-label>Unit</mat-label>
-      <input matInput />
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="custom-form-field">
-      <mat-label>HRS</mat-label>
-      <input matInput />
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="custom-form-field">
-      <mat-label>A/C</mat-label>
-      <input matInput />
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="custom-form-field">
-      <mat-label>Result</mat-label>
-      <input matInput />
-    </mat-form-field>
-  </ng-template>
-</head>
 <div class="form">
-  <h1 class="title">Virtual Stage Check Request Card</h1>
+  <div>
+    <button mat-button class="back-button" (click)="goBack()">
+      <i class="material-icons">arrow_back_ios</i>
+      Save and Exit
+    </button>
+    <div class="form-title">Checkride Form</div>
+  </div>
   <div class="container">
-    <form>
       <div class="form-group">
         <div class="page-one">
           <div class="left-side">
@@ -55,7 +24,7 @@
               <div class="student-stuff">
                 <mat-form-field appearance="outline">
                   <mat-label> Student Name</mat-label>
-                  <input matInput />
+                  <input matInput [(ngModel)]="currentForm.studentName"/>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>Student ID/Number</mat-label>
@@ -81,7 +50,9 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>Last Activity Date</mat-label>
-                  <input matInput />
+                  <input matInput [matDatepicker]="picker" (click)="picker.open()">
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>TM Approval</mat-label>
@@ -89,24 +60,21 @@
                 </mat-form-field>
               </div>
             </div>
-            <mat-form-field>
-              <textarea matInput placeholder="Remarks..."></textarea>
+            <mat-form-field appearance="outline">
+              <textarea matInput placeholder="Remarks..." class="asdf"></textarea>
               <input matInput />
             </mat-form-field>
           </div>
           <div class="right-side">
             <mat-accordion>
-              <mat-expansion-panel
-                (closed)="panelOpenState = false"
-                (opened)="panelOpenState = true"
-              >
+              <mat-expansion-panel (closed)="panelOpenState = false" (opened)="panelOpenState = true">
                 <mat-expansion-panel-header>
                   <mat-panel-title> Items Required </mat-panel-title>
                   <mat-panel-description>
                     {{
-                      panelOpenState
-                        ? "Close List"
-                        : "Click for a list of minimum items for Stage Check/EOC-"
+                    panelOpenState
+                    ? "Close List"
+                    : "Click for a list of minimum items for Stage Check/EOC-"
                     }}
                   </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -174,61 +142,54 @@
         <div class="second-row">
           <h2>Stage/EOC Check Schedule:</h2>
 
+          <!--  -->
           <div class="according-to-him">
-            <mat-accordion>
+            <mat-accordion *ngFor="let row of balls">
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title> Row 1 </mat-panel-title>
+                  <mat-panel-title> Row {{row}} </mat-panel-title>
                 </mat-expansion-panel-header>
-                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
-              </mat-expansion-panel>
-            </mat-accordion>
 
-            <mat-accordion>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title> Row 2 </mat-panel-title>
-                </mat-expansion-panel-header>
-                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
-              </mat-expansion-panel>
-            </mat-accordion>
 
-            <mat-accordion>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title> Row 3 </mat-panel-title>
-                </mat-expansion-panel-header>
-                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
-              </mat-expansion-panel>
-            </mat-accordion>
+                <mat-form-field appearance="outline" class="custom-form-field">
+                  <mat-label>Date</mat-label>
+                  <input matInput />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="custom-form-field">
+                  <mat-label>Time</mat-label>
+                  <input matInput />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="custom-form-field">
+                  <mat-label>IP Name</mat-label>
+                  <input matInput />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="custom-form-field">
+                  <mat-label>Type</mat-label>
+                  <input matInput />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="custom-form-field">
+                  <mat-label>Unit</mat-label>
+                  <input matInput />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="custom-form-field">
+                  <mat-label>HRS</mat-label>
+                  <input matInput />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="custom-form-field">
+                  <mat-label>A/C</mat-label>
+                  <input matInput />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="custom-form-field">
+                  <mat-label>Result</mat-label>
+                  <input matInput />
+                </mat-form-field>
 
-            <mat-accordion>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title> Row 4 </mat-panel-title>
-                </mat-expansion-panel-header>
-                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
-              </mat-expansion-panel>
-            </mat-accordion>
 
-            <mat-accordion>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title> Row 5 </mat-panel-title>
-                </mat-expansion-panel-header>
-                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
-              </mat-expansion-panel>
-            </mat-accordion>
-
-            <mat-accordion>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title> Row 6 </mat-panel-title>
-                </mat-expansion-panel-header>
-                <ng-container *ngTemplateOutlet="checkSchedule"> </ng-container>
               </mat-expansion-panel>
             </mat-accordion>
           </div>
+          <!--  -->
+
         </div>
 
         <div class="third-row">
@@ -257,6 +218,5 @@
           </button>
         </div>
       </div>
-    </form>
   </div>
 </div>
