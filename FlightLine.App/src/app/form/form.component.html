@@ -131,10 +131,15 @@
           </div>
           <div class="signature">
             <mat-form-field appearance="outline">
-              <input matInput placeholder="Signature"/>
+              <input [(ngModel)]="currentForm.studentSignatureOne" matInput placeholder="Signature"/>
             </mat-form-field>
             <mat-form-field appearance="outline">
-              <input matInput placeholder="Date"/>
+              <mat-label>Date</mat-label>
+              <input (click)="pickerTwo.open()" [(ngModel)]="currentForm.studentSignatureDateOne"
+                     [matDatepicker]="pickerTwo"
+                     matInput>
+              <mat-datepicker-toggle [for]="pickerTwo" matIconSuffix></mat-datepicker-toggle>
+              <mat-datepicker #pickerTwo></mat-datepicker>
             </mat-form-field>
           </div>
         </div>
@@ -195,22 +200,33 @@
       <div class="third-row">
         <div class="ip-stuff">
           <mat-form-field appearance="outline">
-            <input matInput placeholder="IP Name"/>
+            <input [(ngModel)]="currentForm.ipName" matInput placeholder="IP Name"/>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <input matInput placeholder="IP Signature"/>
+            <input [(ngModel)]="currentForm.ipSignature" matInput placeholder="IP Signature"/>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <input matInput placeholder="Date"/>
+            <mat-label>Date</mat-label>
+            <input (click)="pickerThree.open()" [(ngModel)]="currentForm.ipSignatureDate"
+                   [matDatepicker]="pickerThree"
+                   matInput>
+            <mat-datepicker-toggle [for]="pickerThree" matIconSuffix></mat-datepicker-toggle>
+            <mat-datepicker #pickerThree></mat-datepicker>
           </mat-form-field>
         </div>
 
         <div class="second-student-signature">
           <mat-form-field appearance="outline">
-            <input matInput placeholder="Student Signature"/>
+            <input [(ngModel)]="currentForm.studentSignatureTwo" matInput placeholder="Student Signature"/>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <input matInput placeholder="Date"/>
+            <mat-label>Date</mat-label>
+
+            <input (click)="pickerFour.open()" [(ngModel)]="currentForm.studentSignatureDateTwo"
+                   [matDatepicker]="pickerFour"
+                   matInput>
+            <mat-datepicker-toggle [for]="pickerFour" matIconSuffix></mat-datepicker-toggle>
+            <mat-datepicker #pickerFour></mat-datepicker>
           </mat-form-field>
         </div>
         <button class="submit-button" color="primary" mat-raised-button>
