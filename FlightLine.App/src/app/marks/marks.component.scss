@@ -1,0 +1,159 @@
+.form {
+}
+
+// .title {
+//   padding-top: 20px;
+//   text-align: center;
+// }
+
+.back-button {
+  background-color: #03539e;
+  -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+  filter: drop-shadow(5px 5px 5px #00000059);
+  font-weight: bold;
+  // height: 56px;
+  color: white !important;
+  vertical-align: top;
+  margin-top: 21px;
+  margin-left: 20px;
+}
+
+.form-title {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 28px;
+  font-weight: bold;
+  font-size: 23px;
+  color: #03539e;
+  -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+  filter: drop-shadow(5px 5px 5px #00000059);
+}
+
+.form-group {
+  padding: 50px;
+}
+
+.page-one {
+  display: flex;
+  justify-content: stretch;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-left: 15px;
+}
+
+.student-information {
+  display: flex;
+  flex-direction: row;
+}
+
+.student-stuff {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+}
+
+.instructor-stuff {
+  display: flex;
+  flex-direction: column;
+}
+
+.first-paragraph {
+  padding-bottom: 20px;
+}
+
+.remarks {
+  padding-top: 30px;
+}
+
+.right-side {
+  width: 50%;
+  padding-left: 100px;
+}
+
+li {
+  margin: 10px 0;
+  list-style-type: circle;
+}
+
+.agreement {
+  padding-top: 42px;
+}
+
+.signature {
+  display: flex;
+  flex-direction: row;
+}
+
+.signature > mat-form-field {
+  margin: 10px;
+}
+
+.second-row {
+}
+
+.according-to-him {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 95%;
+}
+
+.custom-form-field {
+  width: 200px;
+  height: auto;
+  font-size: 12px;
+  margin-top: 3px;
+  margin-bottom: -1.25em;
+  margin-right: 5px;
+
+  mat-datepicker-toggle {
+    font-size: 12px;
+  }
+
+  input.mat-input-element {
+    padding-bottom: 2px;
+    font-size: 12px;
+  }
+}
+
+.third-row {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  margin: 8px;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.ip-stuff > mat-form-field {
+  margin: 10px;
+}
+
+.second-student-signature > mat-form-field {
+  margin: 10px;
+}
+
+.button-wrapper {
+  height: 200px;
+  position: relative;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.submit-button {
+  width: 150px;
+}
+
+.asdf {
+  resize: none;
+}
