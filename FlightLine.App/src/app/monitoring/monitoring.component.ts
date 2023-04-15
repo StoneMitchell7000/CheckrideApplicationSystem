@@ -119,4 +119,8 @@ export class MonitoringComponent implements OnInit {
     this.router.navigate(['/' + form.studentId.toString() + '/form']);
   }
 
+  openMarks(form: CheckrideForm) {
+    this.router.navigate(['/' + form.studentId.toString() + '/marks']);
+  }
+
 }

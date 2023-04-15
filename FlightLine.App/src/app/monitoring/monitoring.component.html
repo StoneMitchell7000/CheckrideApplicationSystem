@@ -60,7 +60,7 @@
                                 </button>
                                 <button mat-icon-button class="action-button" matTooltip="Give Marks"
                                     matTooltipPosition="below" matTooltipShowDelay="0"
-                                    *ngIf="(userService.currentUser === 'CI') || (userService.currentUser === 'ADMIN')">
+                                    *ngIf="(userService.currentUser === 'CI') || (userService.currentUser === 'ADMIN')" (click)="openMarks(form)">
                                     <i class="material-icons">rule</i>
                                 </button>
                                 <button mat-icon-button class="action-button" matTooltip="View Availability"

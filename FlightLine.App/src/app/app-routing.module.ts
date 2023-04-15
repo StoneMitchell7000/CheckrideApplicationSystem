@@ -5,6 +5,7 @@ import { AvailabilityComponent } from './availability/availability.component';
 import { FormComponent } from './form/form.component';
 import { LoginComponent } from './login/login.component';
 import { MonitoringComponent } from './monitoring/monitoring.component';
+import { MarksComponent } from './marks/marks.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: ':id/availability',
     component: AvailabilityComponent
+  },
+  {
+    path: ':id/marks',
+    component: MarksComponent
   }
 ];
 

@@ -24,6 +24,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from "@angular/material/expansion";
+import { MarksComponent } from './marks/marks.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatExpansionModule } from "@angular/material/expansion";
     AvailabilityComponent,
     FormComponent,
     LoginComponent,
-    AccountDialogComponent
+    AccountDialogComponent,
+    MarksComponent
   ],
   imports: [
     BrowserModule,
