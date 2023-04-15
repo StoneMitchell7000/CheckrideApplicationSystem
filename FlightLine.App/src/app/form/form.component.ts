@@ -12,7 +12,6 @@ import { NgProgress, NgProgressRef } from 'ngx-progressbar';
 export class FormComponent implements OnInit {
   panelOpenState = false;
   currentForm: FormDetails = new FormDetails({});
-  balls: any[] = new Array();
   progress: NgProgressRef;
 
   constructor(
@@ -20,10 +19,7 @@ export class FormComponent implements OnInit {
     private progressService: NgProgress,
     private dataService: DataService
   ) {
-    this.progress = this.progressService.ref('myProgress'); 
-    for (let i = 1; i <= 6; i++) {
-      this.balls.push(i);
-    }
+    this.progress = this.progressService.ref('myProgress');
   }
 
   ngOnInit(): void {
@@ -42,5 +38,9 @@ export class FormComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['']);
+  }
+
+  submit(): void {
+    console.log(this.currentForm);
   }
 }

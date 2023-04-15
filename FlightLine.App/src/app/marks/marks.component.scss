@@ -1,5 +1,4 @@
-.form {
-}
+.form {}
 
 // .title {
 //   padding-top: 20px;
@@ -88,12 +87,11 @@ li {
   flex-direction: row;
 }
 
-.signature > mat-form-field {
+.signature>mat-form-field {
   margin: 10px;
 }
 
-.second-row {
-}
+.second-row {}
 
 .according-to-him {
   display: flex;
@@ -129,11 +127,11 @@ li {
   column-gap: 10px;
 }
 
-.ip-stuff > mat-form-field {
+.ip-stuff>mat-form-field {
   margin: 10px;
 }
 
-.second-student-signature > mat-form-field {
+.second-student-signature>mat-form-field {
   margin: 10px;
 }
 
@@ -156,4 +154,106 @@ li {
 
 .asdf {
   resize: none;
+}
+
+// SEPARATION
+
+.approval-grid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 60px min-content min-content;
+  grid-template-columns: 1fr;
+  overflow-y: scroll;
+}
+
+.placeholder-gif {
+  width: 70%;
+  margin: 8px 0;
+  display: inline-block;
+}
+
+.form-container {
+  width: 100%;
+  text-align: center;
+}
+
+.back-button {
+  background-color: #03539e;
+  -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+  filter: drop-shadow(5px 5px 5px #00000059);
+  font-weight: bold;
+  // height: 56px;
+  color: white !important;
+  vertical-align: top;
+  margin-top: 21px;
+  margin-left: 20px;
+}
+
+.approval-title {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 28px;
+  font-weight: bold;
+  font-size: 23px;
+  color: #03539e;
+  -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+  filter: drop-shadow(5px 5px 5px #00000059);
+}
+
+.approval-subgrid-lol {
+  width: 100%;
+  display: grid;
+  grid-template-rows: min-content min-content min-content;
+  grid-template-columns: 1fr;
+}
+
+.center-items {
+  text-align: center;
+}
+
+.sig-button {
+  background-color: #ffcb06;
+  -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+  filter: drop-shadow(5px 5px 5px #00000059);
+  font-weight: bold;
+  height: 56px;
+  margin-right: 8px;
+  vertical-align: top;
+}
+
+.signature-field {
+  margin-right: 8px;
+  -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+  filter: drop-shadow(5px 5px 5px #00000059);
+}
+
+.remarks-area {
+  resize: none !important;
+  width: 100%;
+  height: 100px;
+}
+
+.remarks-label {
+  font-size: 16px;
+}
+
+.remarks-container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.done-button {
+  background-color: #ffcb06;
+  -webkit-filter: drop-shadow(5px 5px 5px #00000059);
+  filter: drop-shadow(5px 5px 5px #00000059);
+  font-weight: bold;
+  margin-right: 8px;
+  vertical-align: top;
+  margin-top: 16px;
+}
+
+.helper-text {
+  display: inline-block;
+  margin-top: 24px;
 }

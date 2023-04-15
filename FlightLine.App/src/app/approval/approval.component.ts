@@ -8,12 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./approval.component.scss']
 })
 export class ApprovalComponent {
+  panelOpenState = false;
   currentDate = new Date();
+  balls: any[] = new Array();
 
   constructor(
     public userService: UserService,
     private router: Router
-  ) { }
+  ) {
+    for (let i = 1; i <= 6; i++) {
+      this.balls.push(i);
+    }
+  }
 
   goBack(): void {
     this.router.navigate(['']);
