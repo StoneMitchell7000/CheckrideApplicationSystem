@@ -33,6 +33,16 @@ export class DataService {
     }
   }
 
+  saveForm(form: FormDetails): Observable<any> {
+    if (environment.production) {
+      // POST, NOT GET
+      return this.httpClient.post(this.baseUrl + '/newpatient', form);
+    }
+    else {
+      return of(1);
+    }
+  }
+
   // DUMMY DATA
   dummyForms(): any {
     let tempForms = new Array<CheckrideForm>();
