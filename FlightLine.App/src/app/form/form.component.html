@@ -24,29 +24,29 @@
             <div class="student-stuff">
               <mat-form-field appearance="outline">
                 <mat-label> Student Name</mat-label>
-                <input [(ngModel)]="currentForm.studentName" matInput />
+                <input [(ngModel)]="currentForm.studentName" matInput/>
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Student Number</mat-label>
-                <input [(ngModel)]="currentForm.studentNumber" matInput type="number" />
+                <input [(ngModel)]="currentForm.studentNumber" matInput type="number"/>
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Phone Number</mat-label>
-                <input [(ngModel)]="currentForm.phoneNumber" matInput />
+                <input [(ngModel)]="currentForm.phoneNumber" matInput type="number"/>
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Sent to Schedule</mat-label>
-                <input [(ngModel)]="currentForm.sentToSchedule" matInput />
+                <input [(ngModel)]="currentForm.sentToSchedule" matInput/>
               </mat-form-field>
             </div>
             <div class="instructor-stuff">
               <mat-form-field appearance="outline">
                 <mat-label>Instructor Name</mat-label>
-                <input [(ngModel)]="currentForm.instructorName" matInput />
+                <input [(ngModel)]="currentForm.instructorName" matInput/>
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Team Number</mat-label>
-                <input [(ngModel)]="currentForm.teamNumber" matInput />
+                <input [(ngModel)]="currentForm.teamNumber" matInput type="number"/>
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Last Activity Date</mat-label>
@@ -56,13 +56,13 @@
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>TM Approval</mat-label>
-                <input [(ngModel)]="currentForm.tmApproval" matInput />
+                <input [(ngModel)]="currentForm.tmApproval" matInput/>
               </mat-form-field>
             </div>
           </div>
           <mat-form-field appearance="outline">
             <textarea class="asdf" matInput placeholder="Remarks..."></textarea>
-            <input matInput />
+            <input matInput/>
           </mat-form-field>
         </div>
         <div class="right-side">
@@ -73,8 +73,8 @@
                 <mat-panel-description>
                   {{
                   panelOpenState
-                  ? "Close List"
-                  : "Click for a list of minimum items for Stage Check/EOC-"
+                    ? "Close List"
+                    : "Click for a list of minimum items for Stage Check/EOC-"
                   }}
                 </mat-panel-description>
               </mat-expansion-panel-header>
@@ -131,12 +131,12 @@
           </div>
           <div class="signature">
             <mat-form-field appearance="outline">
-              <input [(ngModel)]="currentForm.studentSignatureOne" matInput placeholder="Signature" />
+              <input [(ngModel)]="currentForm.studentSignatureOne" matInput placeholder="Signature"/>
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Date</mat-label>
               <input (click)="pickerTwo.open()" [(ngModel)]="currentForm.studentSignatureDateOne"
-                [matDatepicker]="pickerTwo" matInput>
+                     [matDatepicker]="pickerTwo" matInput>
               <mat-datepicker-toggle [for]="pickerTwo" matIconSuffix></mat-datepicker-toggle>
               <mat-datepicker #pickerTwo></mat-datepicker>
             </mat-form-field>
@@ -149,43 +149,45 @@
         <!--  -->
         <div class="according-to-him">
           <mat-accordion *ngFor="let row of currentForm.stageScheduleEntries; let indexOfelement = index;">
+
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title> Row {{indexOfelement + 1}} </mat-panel-title>
               </mat-expansion-panel-header>
-              <mat-form-field appearance="outline">
-                <mat-label>Last Activity Date</mat-label>
-                <input (click)="dynamicpicker.open()" [(ngModel)]="row.date" matInput [matDatepicker]="dynamicpicker">
-                <mat-datepicker-toggle [for]="dynamicpicker" matIconSuffix></mat-datepicker-toggle>
-                <mat-datepicker #dynamicpicker></mat-datepicker>
-              </mat-form-field>
+
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Time</mat-label>
-                <input matInput />
+                <input [(ngModel)]="row.time" class="my-input" matInput/>
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>IP Name</mat-label>
-                <input matInput [(ngModel)]="row.ipName"/>
+                <input [(ngModel)]="row.ipName" class="my-input" matInput/>
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Type</mat-label>
-                <input matInput />
+                <input [(ngModel)]="row.type" class="my-input" matInput/>
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Unit</mat-label>
-                <input matInput />
+                <input [(ngModel)]="row.unit" matInput/>
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Hours</mat-label>
-                <input matInput />
+                <input [(ngModel)]="row.hours" matInput type="number"/>
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>A/C</mat-label>
-                <input matInput />
+                <input [(ngModel)]="row.lastActivity" matInput/>
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Result</mat-label>
-                <input matInput />
+                <input [(ngModel)]="row.result" matInput/>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="my-date-picker">
+                <mat-label>Last Activity Date</mat-label>
+                <input (click)="dynamicpicker.open()" [(ngModel)]="row.date" [matDatepicker]="dynamicpicker" matInput>
+                <mat-datepicker-toggle [for]="dynamicpicker" matIconSuffix></mat-datepicker-toggle>
+                <mat-datepicker #dynamicpicker></mat-datepicker>
               </mat-form-field>
             </mat-expansion-panel>
           </mat-accordion>
@@ -197,15 +199,15 @@
       <div class="third-row">
         <div class="ip-stuff">
           <mat-form-field appearance="outline">
-            <input [(ngModel)]="currentForm.ipName" matInput placeholder="IP Name" />
+            <input [(ngModel)]="currentForm.ipName" matInput placeholder="IP Name"/>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <input [(ngModel)]="currentForm.ipSignature" matInput placeholder="IP Signature" />
+            <input [(ngModel)]="currentForm.ipSignature" matInput placeholder="IP Signature"/>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Date</mat-label>
             <input (click)="pickerThree.open()" [(ngModel)]="currentForm.ipSignatureDate" [matDatepicker]="pickerThree"
-              matInput>
+                   matInput>
             <mat-datepicker-toggle [for]="pickerThree" matIconSuffix></mat-datepicker-toggle>
             <mat-datepicker #pickerThree></mat-datepicker>
           </mat-form-field>
@@ -213,18 +215,18 @@
 
         <div class="second-student-signature">
           <mat-form-field appearance="outline">
-            <input [(ngModel)]="currentForm.studentSignatureTwo" matInput placeholder="Student Signature" />
+            <input [(ngModel)]="currentForm.studentSignatureTwo" matInput placeholder="Student Signature"/>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Date</mat-label>
 
             <input (click)="pickerFour.open()" [(ngModel)]="currentForm.studentSignatureDateTwo"
-              [matDatepicker]="pickerFour" matInput>
+                   [matDatepicker]="pickerFour" matInput>
             <mat-datepicker-toggle [for]="pickerFour" matIconSuffix></mat-datepicker-toggle>
             <mat-datepicker #pickerFour></mat-datepicker>
           </mat-form-field>
         </div>
-        <button class="submit-button" color="primary" mat-raised-button (click)="submit()">
+        <button (click)="submit()" class="submit-button" color="primary" mat-raised-button>
           Submit Form
         </button>
       </div>

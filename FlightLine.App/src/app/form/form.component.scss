@@ -1,4 +1,10 @@
 .form {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 60px min-content min-content;
+  grid-template-columns: 1fr;
+  overflow-y: scroll;
 }
 
 // .title {
@@ -156,4 +162,15 @@ li {
 
 .asdf {
   resize: none;
+}
+
+.mat-form-field, input {
+  //height: 48px;
+  //font-size: 16px;
+}
+
+.my-date-picker {
+  width: 200px;
+  height: 56px;
+  padding: 0;
 }
