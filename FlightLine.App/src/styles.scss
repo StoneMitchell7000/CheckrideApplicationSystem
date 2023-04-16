@@ -17,8 +17,7 @@ $md-accent: (
   A200: #ffcb06,
   A400: #ffcb06,
   A700: #ffcb06,
-  contrast: (
-    50: #000000,
+  contrast: (50: #000000,
     100: #000000,
     200: #000000,
     300: #000000,
@@ -50,8 +49,7 @@ $md-primary: (
   A200: #03539e,
   A400: #03539e,
   A700: #03539e,
-  contrast: (
-    50: #ffffff,
+  contrast: (50: #ffffff,
     100: #ffffff,
     200: #ffffff,
     300: #ffffff,
@@ -83,8 +81,7 @@ $md-warn: (
   A200: #ffe3d4,
   A400: #ffc3a1,
   A700: #ffb287,
-  contrast: (
-    50: #000000,
+  contrast: (50: #000000,
     100: #000000,
     200: #000000,
     300: #000000,
@@ -116,8 +113,7 @@ $md-error: (
   A200: #ffa4a4,
   A400: #ff7171,
   A700: #ff5858,
-  contrast: (
-    50: #000000,
+  contrast: (50: #000000,
     100: #000000,
     200: #000000,
     300: #ffffff,
@@ -137,16 +133,26 @@ $md-error: (
 $my-primary: mat.define-palette($md-primary, 500);
 $my-accent: mat.define-palette($md-accent, A200, A100, A400);
 
-$my-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $my-primary,
-      accent: $my-accent,
-    ),
-  )
-);
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+      ),
+    ));
 
 @include mat.all-component-themes($my-theme);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: #03539e !important;
+  --mdc-snackbar-container-color: white !important;
+  --mdc-snackbar-supporting-text-color: black !important;
+  font-weight: bold;
+}

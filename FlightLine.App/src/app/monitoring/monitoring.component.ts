@@ -6,6 +6,8 @@ import { DataService } from '../data.service';
 import { CheckrideForm } from '../models/checkride-form';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { NewFormComponent } from '../new-form/new-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-monitoring',
@@ -25,7 +27,8 @@ export class MonitoringComponent implements OnInit {
     private progressService: NgProgress,
     private dataService: DataService,
     public userService: UserService,
-    private router: Router
+    private router: Router,
+    public newForm: MatDialog
   ) {
     this.progress = this.progressService.ref('myProgress');
   }
@@ -122,5 +125,16 @@ export class MonitoringComponent implements OnInit {
   openMarks(form: CheckrideForm) {
     this.router.navigate(['/' + form.studentId.toString() + '/marks']);
   }
+
+  createNewForm() {
+    const dialog = this.newForm.open(NewFormComponent, {
+      disableClose: true,
+    });
+    dialog.afterClosed().subscribe(result => {
+      if (result) {
+      }
+    });
+  }
+
 
 }

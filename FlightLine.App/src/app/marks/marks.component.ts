@@ -10,7 +10,7 @@ import { FormDetails } from '../models/form-details';
   styleUrls: ['./marks.component.scss']
 })
 export class MarksComponent implements OnInit {
-  panelOpenState = true;
+  panelOpenState = false;
   currentForm: FormDetails = new FormDetails({});
   balls: any[] = new Array();
   progress: NgProgressRef;
