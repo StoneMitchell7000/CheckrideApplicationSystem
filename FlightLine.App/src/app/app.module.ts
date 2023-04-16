@@ -25,6 +25,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MarksComponent } from './marks/marks.component';
+import { NewFormComponent } from './new-form/new-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MarksComponent } from './marks/marks.component';
     FormComponent,
     LoginComponent,
     AccountDialogComponent,
-    MarksComponent
+    MarksComponent,
+    NewFormComponent
   ],
   imports: [
     BrowserModule,

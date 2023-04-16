@@ -22,7 +22,7 @@
             </mat-form-field>
         </form>
         <button mat-button class="text-button"
-            *ngIf="(userService.currentUser === 'IP') || (userService.currentUser === 'ADMIN')">
+            *ngIf="(userService.currentUser === 'IP') || (userService.currentUser === 'ADMIN')" (click)="createNewForm()">
             <i class="material-icons">add</i>
             Create New Form
         </button>

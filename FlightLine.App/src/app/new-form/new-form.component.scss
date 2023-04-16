@@ -1,0 +1,50 @@
+.save-button {
+    float: right;
+    background-color: #ffcb06;
+    border-radius: 4px;
+    padding-right: 13px;
+    -webkit-filter: drop-shadow(2px 2px 2px #222222a1);
+    filter: drop-shadow(2px 2px 2px #222222a1);
+    transition: .25s;
+    font-weight: bold;
+}
+
+.cancel-button {
+    float: right;
+    background-color: #03539e;
+    color: white;
+    border-radius: 4px;
+    padding-right: 10px;
+    margin-right: 10px;
+    -webkit-filter: drop-shadow(2px 2px 2px #222222a1);
+    filter: drop-shadow(2px 2px 2px #222222a1);
+    transition: .25s;
+}
+
+.new-patient-grid {
+    display: grid;
+    width: 500px;
+    grid-template-columns: 240px 6px 240px;
+    grid-template-rows: min-content min-content;
+}
+
+.bottom-bar {
+    grid-area: 2 / 1 / span 1 / span 3;
+}
+
+.popup-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #03539e;
+    -webkit-filter: drop-shadow(2px 2px 2px #222222a1);
+    filter: drop-shadow(2px 2px 2px #222222a1);
+}
+
+.new-input-field {
+    width: 240px;
+}
+
+.popup-container {
+    padding: 20px;
+}

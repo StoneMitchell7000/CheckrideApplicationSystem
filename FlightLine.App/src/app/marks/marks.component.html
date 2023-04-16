@@ -147,7 +147,7 @@
             <!--  -->
             <div class="according-to-him">
               <mat-accordion *ngFor="let row of balls">
-                <mat-expansion-panel>
+                <mat-expansion-panel [expanded]="true">
                   <mat-expansion-panel-header>
                     <mat-panel-title> Row {{row}} </mat-panel-title>
                   </mat-expansion-panel-header>
