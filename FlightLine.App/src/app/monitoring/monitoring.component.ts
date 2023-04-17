@@ -115,15 +115,15 @@ export class MonitoringComponent implements OnInit {
   }
 
   openAvailability(form: CheckrideForm) {
-    this.router.navigate(['/' + form.studentId.toString() + '/availability']);
+    this.router.navigate(['/' + form.checkrideId.toString() + '/availability']);
   }
 
   openForm(form: CheckrideForm) {
-    this.router.navigate(['/' + form.studentId.toString() + '/form']);
+    this.router.navigate(['/' + form.checkrideId.toString() + '/form']);
   }
 
   openMarks(form: CheckrideForm) {
-    this.router.navigate(['/' + form.studentId.toString() + '/marks']);
+    this.router.navigate(['/' + form.checkrideId.toString() + '/marks']);
   }
 
   createNewForm() {
@@ -132,9 +132,18 @@ export class MonitoringComponent implements OnInit {
     });
     dialog.afterClosed().subscribe(result => {
       if (result) {
+        result.dateCreated = new Date();
+        result.status = 'pending';
+        this.saveNewForm(result);
       }
     });
   }
 
-
+  saveNewForm(form: CheckrideForm): void {
+    this.progress.start();
+    this.dataService.saveNewForm(form).subscribe(resp => {
+      this.progress.complete();
+      this.loadForms();
+    });
+  }
 }

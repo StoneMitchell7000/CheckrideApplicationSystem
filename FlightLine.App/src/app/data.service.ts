@@ -36,7 +36,17 @@ export class DataService {
   saveForm(form: FormDetails): Observable<any> {
     if (environment.production) {
       // POST, NOT GET
-      return this.httpClient.post(this.baseUrl + '/newpatient', form);
+      return this.httpClient.post(this.baseUrl + '/saveform', form);
+    }
+    else {
+      return of(1);
+    }
+  }
+
+  saveNewForm(form: CheckrideForm): Observable<any> {
+    if (environment.production) {
+      // POST, NOT GET
+      return this.httpClient.post(this.baseUrl + '/newform', form);
     }
     else {
       return of(1);
@@ -47,8 +57,8 @@ export class DataService {
   dummyForms(): any {
     let tempForms = new Array<CheckrideForm>();
     let temp = {
-      checkride_id: 100, student_name: 'Testy Testerson', 
-      student_id: 0, status: 'pending', 
+      checkride_id: 100, student_name: 'Testy Testerson',
+      student_id: 0, status: 'pending',
       details: 'What should go here? status is prolly 1 thing. lmk', date_created: new Date()
     };
     for (let i = 0; i < 90; i++) {

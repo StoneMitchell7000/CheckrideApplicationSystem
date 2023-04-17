@@ -12,7 +12,6 @@ import { FormDetails } from '../models/form-details';
 export class MarksComponent implements OnInit {
   panelOpenState = false;
   currentForm: FormDetails = new FormDetails({});
-  balls: any[] = new Array();
   progress: NgProgressRef;
 
   constructor(
@@ -21,9 +20,6 @@ export class MarksComponent implements OnInit {
     private dataService: DataService
   ) {
     this.progress = this.progressService.ref('myProgress'); 
-    for (let i = 1; i <= 6; i++) {
-      this.balls.push(i);
-    }
   }
 
   ngOnInit(): void {
