@@ -2,7 +2,7 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 60px min-content min-content;
+    grid-template-rows: 60px min-content min-content min-content;
     grid-template-columns: 1fr;
     overflow-y: scroll;
 }
@@ -45,6 +45,7 @@
     display: grid;
     grid-template-rows: min-content min-content min-content;
     grid-template-columns: 1fr;
+    margin-bottom: 5px;
 }
 
 .center-items {

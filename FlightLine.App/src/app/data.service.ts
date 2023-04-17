@@ -24,9 +24,9 @@ export class DataService {
     }
   }
 
-  loadFormDetails(): Observable<any> {
+  loadFormDetails(checkrideId: number): Observable<any> {
     if (environment.production) {
-      return this.httpClient.get(this.baseUrl + '/formdetails');
+      return this.httpClient.get(this.baseUrl + '/formdetails/' + checkrideId);
     }
     else {
       return of(this.dummyDetails());

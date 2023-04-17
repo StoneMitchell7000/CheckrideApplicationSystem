@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormDetails } from '../models/form-details';
 import { NgProgress, NgProgressRef } from 'ngx-progressbar';
 import { DataService } from '../data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-approval',
@@ -12,7 +13,6 @@ import { DataService } from '../data.service';
 })
 export class ApprovalComponent implements OnInit {
   panelOpenState = false;
-  currentDate = new Date();
   currentForm: FormDetails = new FormDetails({});
   progress: NgProgressRef;
 
@@ -20,7 +20,8 @@ export class ApprovalComponent implements OnInit {
     public userService: UserService,
     private router: Router,
     private progressService: NgProgress,
-    private dataService: DataService
+    private dataService: DataService,
+    private snackBar: MatSnackBar
   ) {
     this.progress = this.progressService.ref('myProgress');
   }
@@ -30,16 +31,55 @@ export class ApprovalComponent implements OnInit {
   }
 
   loadData(): void {
+    let checkrideId = +this.router.url.substring(
+      this.router.url.indexOf("/") + 1,
+      this.router.url.lastIndexOf("/")
+    );
+
     this.currentForm = new FormDetails({});
     this.progress.start();
-    this.dataService.loadFormDetails().subscribe(resp => {
+    this.dataService.loadFormDetails(checkrideId).subscribe(resp => {
       // this.currentForm = resp.msg;
       this.currentForm = resp;
+      this.currentForm.tmApprovalDate = new Date();
+      this.currentForm.roApprovalDate = new Date();
       this.progress.complete();
+    });
+  }
+
+  approve(): void {
+    if (this.userService.currentUser === 'TM') {
+      if (!this.currentForm.tmApprovalSig) {
+        this.openSnackBar('Please sign before completing.', 3000);
+      } else {
+        this.saveForm();
+      }
+    } else if (this.userService.currentUser === 'RO') {
+      if (!this.currentForm.roApprovalSig) {
+        this.openSnackBar('Please sign before completing.', 3000);
+      } else {
+        this.saveForm();
+      }
+    } else {
+      this.openSnackBar('Invalid user type.', 3000);
+    }
+  }
+
+  saveForm(): void {
+    this.progress.start();
+    this.dataService.saveForm(this.currentForm).subscribe(resp => {
+      this.progress.complete();
+      this.goBack();
     });
   }
 
   goBack(): void {
     this.router.navigate(['']);
+  }
+
+  openSnackBar(msg: string, msgDuration: number = 2000, btn: string = 'OK') {
+    this.snackBar.open(msg, btn, {
+      duration: msgDuration,
+    });
   }
 }

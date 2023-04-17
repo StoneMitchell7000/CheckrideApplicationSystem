@@ -29,9 +29,14 @@ export class FormComponent implements OnInit {
   }
 
   loadData(): void {
+    let checkrideId = +this.router.url.substring(
+      this.router.url.indexOf("/") + 1,
+      this.router.url.lastIndexOf("/")
+    );
+
     this.currentForm = new FormDetails({});
     this.progress.start();
-    this.dataService.loadFormDetails().subscribe(resp => {
+    this.dataService.loadFormDetails(checkrideId).subscribe(resp => {
       // this.currentForm = resp.msg;
       this.currentForm = resp;
       this.progress.complete();
