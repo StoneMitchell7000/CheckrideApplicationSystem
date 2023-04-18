@@ -64,7 +64,7 @@
               </div>
               <mat-form-field appearance="outline">
                 <textarea class="asdf" matInput placeholder="Remarks..."></textarea>
-                <input readonly matInput />
+                <input [(ngModel)]="currentForm.formRemarks" readonly matInput />
               </mat-form-field>
             </div>
             <div class="right-side">

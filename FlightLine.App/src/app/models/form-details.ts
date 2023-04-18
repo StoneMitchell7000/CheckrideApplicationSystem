@@ -17,6 +17,7 @@ export class FormDetails {
   public teamNumber: number;
   public lastActivity: Date;
   public tmApproval: string;
+  public formRemarks: string;
   public studentSignatureOne: string;
   public studentSignatureDateOne: string;
   public studentSignatureTwo: string;
@@ -46,6 +47,7 @@ export class FormDetails {
     this.teamNumber = (obj && obj.team_number) || obj.teamNumber || null;
     this.lastActivity = (obj && obj.last_activity) || obj.lastActivity || null;
     this.tmApproval = (obj && obj.tm_approval) || obj.tmApproval || null;
+    this.formRemarks = (obj && obj.form_remarks) || obj.formRemarks || null;
     this.studentSignatureOne =
       (obj && obj.student_signature_one) || obj.studentSignatureOne || null;
     this.studentSignatureDateOne =
