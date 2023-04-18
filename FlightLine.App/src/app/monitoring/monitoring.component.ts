@@ -75,6 +75,15 @@ export class MonitoringComponent implements OnInit {
         this.statusSearch = ['active'];
       }
 
+      // update status
+      if (this.dataService.formUpdateId !== -1) {
+        let updatedForm = this.checkrideForms.find(i => i.checkrideId === this.dataService.formUpdateId);
+        if (updatedForm) {
+          updatedForm.status = this.dataService.formUpdateStatus;
+          this.saveForm(updatedForm);
+        }
+      }
+
       this.search();
     });
   }
@@ -134,15 +143,17 @@ export class MonitoringComponent implements OnInit {
       if (result) {
         result.dateCreated = new Date();
         result.status = 'pending';
-        this.saveNewForm(result);
+        this.saveForm(result);
       }
     });
   }
 
-  saveNewForm(form: CheckrideForm): void {
+  saveForm(form: CheckrideForm): void {
     this.progress.start();
-    this.dataService.saveNewForm(form).subscribe(resp => {
+    this.dataService.saveForm(form).subscribe(resp => {
       this.progress.complete();
+      this.dataService.formUpdateId = -1;
+      this.dataService.formUpdateStatus = 'null';
       this.loadForms();
     });
   }

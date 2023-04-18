@@ -1,6 +1,14 @@
 import { StageScheduleEntry } from './stage-schedule-entry';
 
 export class FormDetails {
+  public checkrideId: number;
+
+  public tmApprovalSig: string;
+  public tmApprovalRemarks: string;
+  public tmApprovalDate: Date;
+  public roApprovalSig: string;
+  public roApprovalDate: Date;
+
   public studentName: string;
   public studentNumber: number;
   public phoneNumber: number;
@@ -19,6 +27,14 @@ export class FormDetails {
   public stageScheduleEntries: StageScheduleEntry[];
 
   constructor(obj?: any) {
+    this.checkrideId = obj && obj.checkride_id || obj.checkrideId || null;
+
+    this.tmApprovalSig = obj && obj.tm_approval_sig || obj.tmApprovalSig || null;
+    this.tmApprovalRemarks = obj && obj.tm_approval_remarks || obj.tmApprovalRemarks || null;
+    this.tmApprovalDate = obj && obj.tm_approval_date || obj.tmApprovalDate || null;
+    this.roApprovalSig = obj && obj.ro_approval_sig || obj.roApprovalSig || null;
+    this.roApprovalDate = obj && obj.ro_approval_date || obj.roApprovalDate || null;
+
     this.studentName = (obj && obj.student_name) || obj.studentName || null;
     this.studentNumber =
       (obj && obj.student_number) || obj.studentNumber || null;

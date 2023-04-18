@@ -3,7 +3,6 @@ export class CheckrideForm {
     public studentName: string;
     public studentId: number;
     public status: string;
-    public details: string;
     public dateCreated: Date;
 
     constructor(obj?: any) {
@@ -11,7 +10,6 @@ export class CheckrideForm {
         this.studentName = obj && obj.student_name || obj.studentName || null;
         this.studentId = obj && obj.student_id || obj.studentId || null;
         this.status = obj && obj.status || obj.status || null;
-        this.details = obj && obj.details || obj.details || null;
         this.dateCreated = obj && obj.date_created || obj.dateCreated || null;
     }
 
