@@ -149,7 +149,6 @@ export class MonitoringComponent implements OnInit {
   }
 
   saveForm(form: CheckrideForm): void {
-    console.log(form);
     this.progress.start();
     this.dataService.saveForm(form).subscribe(resp => {
       this.progress.complete();
