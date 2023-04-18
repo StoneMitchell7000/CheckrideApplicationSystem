@@ -98,6 +98,9 @@ li {
   margin: 10px;
 }
 
+.second-row {
+}
+
 .according-to-him {
   display: flex;
   flex-direction: column;
@@ -160,6 +163,11 @@ li {
 
 .asdf {
   resize: none;
+}
+
+.mat-form-field, input {
+  //height: 48px;
+  //font-size: 16px;
 }
 
 .my-date-picker {
