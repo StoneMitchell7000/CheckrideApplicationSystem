@@ -5,7 +5,7 @@ export class StageScheduleEntry {
     public type: string;
     public unit: string;
     public hours: number;
-    public lastActivity: string;
+    public ac: string;
     public result: string;
 
     constructor(obj?: any) {
@@ -15,7 +15,7 @@ export class StageScheduleEntry {
         this.type = (obj && obj.type) || obj.type || null;
         this.unit = (obj && obj.unit) || obj.unit || null;
         this.hours = (obj && obj.hours) || obj.hours || null;
-        this.lastActivity = (obj && obj.last_activity) || obj.lastActivity || null;
+        this.ac = (obj && obj.ac) || obj.ac || null;
         this.result = (obj && obj.result) || obj.result || null;
     }
 }

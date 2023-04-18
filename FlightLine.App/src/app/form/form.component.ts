@@ -52,12 +52,13 @@ export class FormComponent implements OnInit {
   }
 
   submit(): void {
-    // only need validation on fields we need. idk which those are, maybe ask someone else.
-    if (!this.currentForm.studentName || !this.currentForm.stageScheduleEntries[0].ipName) {
-      this.openSnackBar('Please fill out all fields before saving.', 3000);
-    } else {
-      this.saveForm();
+    for (const key in this.currentForm) {
+      if ((this.currentForm as any)[key] == null) {
+        this.openSnackBar(`Please fill out the ${key} field`, 3000);
+        return;
+      }
     }
+    this.saveForm();
   }
 
   saveForm(): void {
