@@ -31,7 +31,7 @@ export class FormComponent implements OnInit {
   loadData(): void {
     this.currentForm = new FormDetails({});
     this.progress.start();
-    this.dataService.loadFormDetails().subscribe(resp => {
+    this.dataService.loadFormDetails().subscribe((resp) => {
       // this.currentForm = resp.msg;
       this.currentForm = resp;
       this.progress.complete();
@@ -44,16 +44,21 @@ export class FormComponent implements OnInit {
 
   submit(): void {
     // only need validation on fields we need. idk which those are, maybe ask someone else.
-    if (!this.currentForm.studentName || !this.currentForm.stageScheduleEntries[0].ipName) {
-      this.openSnackBar('Please fill out all fields before saving.', 3000);
-    } else {
-      this.saveForm();
+    for (const key in this.currentForm) {
+      if ((this.currentForm as any)[key] == null) {
+        this.openSnackBar(`Please fill out the ${key} field`, 3000);
+        return;
+      }
     }
+        this.saveForm();
   }
+    
+
+  
 
   saveForm(): void {
     this.progress.start();
-    this.dataService.saveForm(this.currentForm).subscribe(resp => {
+    this.dataService.saveForm(this.currentForm).subscribe((resp) => {
       this.progress.complete();
       this.goBack();
     });

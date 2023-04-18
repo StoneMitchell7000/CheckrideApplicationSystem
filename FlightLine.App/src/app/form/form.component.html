@@ -24,57 +24,80 @@
             <div class="student-stuff">
               <mat-form-field appearance="outline">
                 <mat-label> Student Name</mat-label>
-                <input [(ngModel)]="currentForm.studentName" matInput/>
+                <input [(ngModel)]="currentForm.studentName" matInput />
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Student Number</mat-label>
-                <input [(ngModel)]="currentForm.studentNumber" matInput type="number"/>
+                <input
+                  [(ngModel)]="currentForm.studentNumber"
+                  matInput
+                  type="number"
+                />
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Phone Number</mat-label>
-                <input [(ngModel)]="currentForm.phoneNumber" matInput type="number"/>
+                <input
+                  [(ngModel)]="currentForm.phoneNumber"
+                  matInput
+                  type="number"
+                />
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Sent to Schedule</mat-label>
-                <input [(ngModel)]="currentForm.sentToSchedule" matInput/>
+                <input [(ngModel)]="currentForm.sentToSchedule" matInput />
               </mat-form-field>
             </div>
             <div class="instructor-stuff">
               <mat-form-field appearance="outline">
                 <mat-label>Instructor Name</mat-label>
-                <input [(ngModel)]="currentForm.instructorName" matInput/>
+                <input [(ngModel)]="currentForm.instructorName" matInput />
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Team Number</mat-label>
-                <input [(ngModel)]="currentForm.teamNumber" matInput type="number"/>
+                <input
+                  [(ngModel)]="currentForm.teamNumber"
+                  matInput
+                  type="number"
+                />
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Last Activity Date</mat-label>
-                <input (click)="picker.open()" [(ngModel)]="currentForm.lastActivity" [matDatepicker]="picker" matInput>
-                <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
+                <input
+                  (click)="picker.open()"
+                  [(ngModel)]="currentForm.lastActivity"
+                  [matDatepicker]="picker"
+                  matInput
+                />
+                <mat-datepicker-toggle
+                  [for]="picker"
+                  matIconSuffix
+                ></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>TM Approval</mat-label>
-                <input [(ngModel)]="currentForm.tmApproval" matInput/>
+                <input [(ngModel)]="currentForm.tmApproval" matInput />
               </mat-form-field>
             </div>
           </div>
           <mat-form-field appearance="outline">
             <textarea class="asdf" matInput placeholder="Remarks..."></textarea>
-            <input matInput/>
+            <input matInput />
           </mat-form-field>
         </div>
         <div class="right-side">
           <mat-accordion>
-            <mat-expansion-panel (closed)="panelOpenState = false" (opened)="panelOpenState = true">
+            <mat-expansion-panel
+              (closed)="panelOpenState = false"
+              (opened)="panelOpenState = true"
+            >
               <mat-expansion-panel-header>
                 <mat-panel-title> Items Required</mat-panel-title>
                 <mat-panel-description>
                   {{
-                  panelOpenState
-                    ? "Close List"
-                    : "Click for a list of minimum items for Stage Check/EOC-"
+                    panelOpenState
+                      ? "Close List"
+                      : "Click for a list of minimum items for Stage Check/EOC-"
                   }}
                 </mat-panel-description>
               </mat-expansion-panel-header>
@@ -99,30 +122,30 @@
                 <li>Current Phoenix Sectional</li>
                 <li>Current Southwest Chart Supplement</li>
                 <li>
-                  Current Flight Operations Manual (for flight portion of
-                  stage check)
+                  Current Flight Operations Manual (for flight portion of stage
+                  check)
                 </li>
               </ul>
             </mat-expansion-panel>
           </mat-accordion>
           <div class="agreement">
             <p>
-              I have reviewed all of the items to be performed on this
-              Stage/EOC Check and am prepared as of today to accomplish each
-              item to the standards stated in the ERAU Course Standards.
+              I have reviewed all of the items to be performed on this Stage/EOC
+              Check and am prepared as of today to accomplish each item to the
+              standards stated in the ERAU Course Standards.
             </p>
             <p>
               I have reviewed my current Flight Ops availability and it is
               correct. I agree to be scheduled for this Stage/EOC Check during
               those times. If my availability changes after today, it is my
-              responsibility to personally update my availability on the
-              Flight Ops website by 1200 at least 2 business days prior in
-              accordance with the policies in the FOM.
+              responsibility to personally update my availability on the Flight
+              Ops website by 1200 at least 2 business days prior in accordance
+              with the policies in the FOM.
             </p>
             <p>
-              If I do not bring the above items or update my availability
-              before being scheduled, I will be NO-SHOWED for any and all
-              activities scheduled.
+              If I do not bring the above items or update my availability before
+              being scheduled, I will be NO-SHOWED for any and all activities
+              scheduled.
             </p>
             <p>
               I will monitor ETA to determine the POSTED time of my activities
@@ -131,13 +154,24 @@
           </div>
           <div class="signature">
             <mat-form-field appearance="outline">
-              <input [(ngModel)]="currentForm.studentSignatureOne" matInput placeholder="Signature"/>
+              <input
+                [(ngModel)]="currentForm.studentSignatureOne"
+                matInput
+                placeholder="Signature"
+              />
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Date</mat-label>
-              <input (click)="pickerTwo.open()" [(ngModel)]="currentForm.studentSignatureDateOne"
-                     [matDatepicker]="pickerTwo" matInput>
-              <mat-datepicker-toggle [for]="pickerTwo" matIconSuffix></mat-datepicker-toggle>
+              <input
+                (click)="pickerTwo.open()"
+                [(ngModel)]="currentForm.studentSignatureDateOne"
+                [matDatepicker]="pickerTwo"
+                matInput
+              />
+              <mat-datepicker-toggle
+                [for]="pickerTwo"
+                matIconSuffix
+              ></mat-datepicker-toggle>
               <mat-datepicker #pickerTwo></mat-datepicker>
             </mat-form-field>
           </div>
@@ -148,85 +182,129 @@
 
         <!--  -->
         <div class="according-to-him">
-          <mat-accordion *ngFor="let row of currentForm.stageScheduleEntries; let indexOfelement = index;">
-
+          <mat-accordion
+            *ngFor="
+              let row of currentForm.stageScheduleEntries;
+              let indexOfelement = index
+            "
+          >
             <mat-expansion-panel>
               <mat-expansion-panel-header>
-                <mat-panel-title> Row {{indexOfelement + 1}} </mat-panel-title>
+                <mat-panel-title>
+                  Row {{ indexOfelement + 1 }}
+                </mat-panel-title>
               </mat-expansion-panel-header>
 
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Time</mat-label>
-                <input [(ngModel)]="row.time" class="my-input" matInput/>
+                <input [(ngModel)]="row.time" class="my-input" matInput />
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>IP Name</mat-label>
-                <input [(ngModel)]="row.ipName" class="my-input" matInput/>
+                <input [(ngModel)]="row.ipName" class="my-input" matInput />
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Type</mat-label>
-                <input [(ngModel)]="row.type" class="my-input" matInput/>
+                <input [(ngModel)]="row.type" class="my-input" matInput />
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Unit</mat-label>
-                <input [(ngModel)]="row.unit" matInput/>
+                <input [(ngModel)]="row.unit" matInput />
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Hours</mat-label>
-                <input [(ngModel)]="row.hours" matInput type="number"/>
+                <input [(ngModel)]="row.hours" matInput type="number" />
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>A/C</mat-label>
-                <input [(ngModel)]="row.lastActivity" matInput/>
+                <input [(ngModel)]="row.ac" matInput />
               </mat-form-field>
               <mat-form-field appearance="outline" class="custom-form-field">
                 <mat-label>Result</mat-label>
-                <input [(ngModel)]="row.result" matInput/>
+                <input [(ngModel)]="row.result" matInput />
               </mat-form-field>
               <mat-form-field appearance="outline" class="my-date-picker">
                 <mat-label>Last Activity Date</mat-label>
-                <input (click)="dynamicpicker.open()" [(ngModel)]="row.date" [matDatepicker]="dynamicpicker" matInput>
-                <mat-datepicker-toggle [for]="dynamicpicker" matIconSuffix></mat-datepicker-toggle>
+                <input
+                  (click)="dynamicpicker.open()"
+                  [(ngModel)]="row.date"
+                  [matDatepicker]="dynamicpicker"
+                  matInput
+                />
+                <mat-datepicker-toggle
+                  [for]="dynamicpicker"
+                  matIconSuffix
+                ></mat-datepicker-toggle>
                 <mat-datepicker #dynamicpicker></mat-datepicker>
               </mat-form-field>
             </mat-expansion-panel>
           </mat-accordion>
         </div>
         <!--  -->
-
       </div>
 
       <div class="third-row">
         <div class="ip-stuff">
           <mat-form-field appearance="outline">
-            <input [(ngModel)]="currentForm.ipName" matInput placeholder="IP Name"/>
+            <input
+              [(ngModel)]="currentForm.ipName"
+              matInput
+              placeholder="IP Name"
+            />
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <input [(ngModel)]="currentForm.ipSignature" matInput placeholder="IP Signature"/>
+            <input
+              [(ngModel)]="currentForm.ipSignature"
+              matInput
+              placeholder="IP Signature"
+            />
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Date</mat-label>
-            <input (click)="pickerThree.open()" [(ngModel)]="currentForm.ipSignatureDate" [matDatepicker]="pickerThree"
-                   matInput>
-            <mat-datepicker-toggle [for]="pickerThree" matIconSuffix></mat-datepicker-toggle>
+            <input
+              (click)="pickerThree.open()"
+              [(ngModel)]="currentForm.ipSignatureDate"
+              [matDatepicker]="pickerThree"
+              matInput
+            />
+            <mat-datepicker-toggle
+              [for]="pickerThree"
+              matIconSuffix
+            ></mat-datepicker-toggle>
             <mat-datepicker #pickerThree></mat-datepicker>
           </mat-form-field>
         </div>
 
         <div class="second-student-signature">
           <mat-form-field appearance="outline">
-            <input [(ngModel)]="currentForm.studentSignatureTwo" matInput placeholder="Student Signature"/>
+            <input
+              [(ngModel)]="currentForm.studentSignatureTwo"
+              matInput
+              placeholder="Student Signature"
+            />
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Date</mat-label>
 
-            <input (click)="pickerFour.open()" [(ngModel)]="currentForm.studentSignatureDateTwo"
-                   [matDatepicker]="pickerFour" matInput>
-            <mat-datepicker-toggle [for]="pickerFour" matIconSuffix></mat-datepicker-toggle>
+            <input
+              (click)="pickerFour.open()"
+              [(ngModel)]="currentForm.studentSignatureDateTwo"
+              [matDatepicker]="pickerFour"
+              matInput
+            />
+            <mat-datepicker-toggle
+              [for]="pickerFour"
+              matIconSuffix
+            ></mat-datepicker-toggle>
             <mat-datepicker #pickerFour></mat-datepicker>
           </mat-form-field>
         </div>
-        <button (click)="submit()" class="submit-button" color="accent" mat-raised-button>
+        <button
+          (click)="submit()"
+          class="submit-button"
+          color="accent"
+          mat-raised-button
+        >
           Submit Form
         </button>
       </div>

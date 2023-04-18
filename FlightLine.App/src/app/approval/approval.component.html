@@ -1,269 +1,406 @@
 <div class="approval-grid animated fadeIn">
-    <div>
-        <button mat-button class="back-button" (click)="goBack()">
-            <i class="material-icons">arrow_back_ios</i>
-            Back
-        </button>
-        <div class="approval-title">Form Approval</div>
-    </div>
-    <div class="form-container">
-        <div class="form">
-            <div class="container">
-              <div class="form-group">
-                <div class="page-one">
-                  <div class="left-side">
-                    <h2>Student Information</h2>
-                    <h3>Student Availability:</h3>
-                    <p>
-                      I have reviewed my current Flight Ops availability and it is
-                      correct. I agree to be scheduled for this Stage/EOC Check during
-                      those times. If my availability changes after today, it is my
-                      responsibility to personally update my availability on the Flight
-                      Ops website by 1200 at least 2 business days prior in accordance
-                      with the policies in the FOM
-                    </p>
-                    <div class="student-information">
-                      <div class="student-stuff">
-                        <mat-form-field appearance="outline">
-                          <mat-label> Student Name</mat-label>
-                          <input readonly [(ngModel)]="currentForm.studentName" matInput/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                          <mat-label>Student Number</mat-label>
-                          <input readonly [(ngModel)]="currentForm.studentNumber" matInput type="number"/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                          <mat-label>Phone Number</mat-label>
-                          <input readonly [(ngModel)]="currentForm.phoneNumber" matInput type="number"/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                          <mat-label>Sent to Schedule</mat-label>
-                          <input readonly [(ngModel)]="currentForm.sentToSchedule" matInput/>
-                        </mat-form-field>
-                      </div>
-                      <div class="instructor-stuff">
-                        <mat-form-field appearance="outline">
-                          <mat-label>Instructor Name</mat-label>
-                          <input readonly [(ngModel)]="currentForm.instructorName" matInput/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                          <mat-label>Team Number</mat-label>
-                          <input readonly [(ngModel)]="currentForm.teamNumber" matInput type="number"/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                          <mat-label>Last Activity Date</mat-label>
-                          <input readonly [(ngModel)]="currentForm.lastActivity" [matDatepicker]="picker" matInput>
-                          <!-- <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle> -->
-                          <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                          <mat-label>TM Approval</mat-label>
-                          <input readonly [(ngModel)]="currentForm.tmApproval" matInput/>
-                        </mat-form-field>
-                      </div>
-                    </div>
-                    <mat-form-field appearance="outline">
-                      <textarea class="asdf" matInput placeholder="Remarks..."></textarea>
-                      <input readonly matInput/>
-                    </mat-form-field>
-                  </div>
-                  <div class="right-side">
-                    <mat-accordion>
-                      <mat-expansion-panel (closed)="panelOpenState = false" (opened)="panelOpenState = true">
-                        <mat-expansion-panel-header>
-                          <mat-panel-title> Items Required</mat-panel-title>
-                          <mat-panel-description>
-                            {{
-                            panelOpenState
-                              ? "Close List"
-                              : "Click for a list of minimum items for Stage Check/EOC-"
-                            }}
-                          </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <ul class="items-list">
-                          <li>Government issued photo ID</li>
-                          <li>Current Medical Certificate</li>
-                          <li>Current Student Pilot Certificate</li>
-                          <li>Logbook</li>
-                          <li>
-                            Endorsements (Student Pilot Cert. & Logbook) required by 14
-                            CFR Part61 for solo flight
-                          </li>
-                          <li>
-                            W&B/Performance data sheet completed prior to pre-flight
-                            briefing
-                          </li>
-                          <li>
-                            Risk Assessment form completed prior to pre-flight briefing
-                          </li>
-                          <li>Current C-172S NAV III checklists</li>
-                          <li>Current C-172S NAV III PIM</li>
-                          <li>Current Phoenix Sectional</li>
-                          <li>Current Southwest Chart Supplement</li>
-                          <li>
-                            Current Flight Operations Manual (for flight portion of
-                            stage check)
-                          </li>
-                        </ul>
-                      </mat-expansion-panel>
-                    </mat-accordion>
-                    <div class="agreement">
-                      <p>
-                        I have reviewed all of the items to be performed on this
-                        Stage/EOC Check and am prepared as of today to accomplish each
-                        item to the standards stated in the ERAU Course Standards.
-                      </p>
-                      <p>
-                        I have reviewed my current Flight Ops availability and it is
-                        correct. I agree to be scheduled for this Stage/EOC Check during
-                        those times. If my availability changes after today, it is my
-                        responsibility to personally update my availability on the
-                        Flight Ops website by 1200 at least 2 business days prior in
-                        accordance with the policies in the FOM.
-                      </p>
-                      <p>
-                        If I do not bring the above items or update my availability
-                        before being scheduled, I will be NO-SHOWED for any and all
-                        activities scheduled.
-                      </p>
-                      <p>
-                        I will monitor ETA to determine the POSTED time of my activities
-                      </p>
-                      <h2>I HAVE READ AND AGREE TO ALL OF THE ABOVE STATEMENTS</h2>
-                    </div>
-                    <div class="signature">
-                      <mat-form-field appearance="outline">
-                        <input readonly [(ngModel)]="currentForm.studentSignatureOne" matInput placeholder="Signature"/>
-                      </mat-form-field>
-                      <mat-form-field appearance="outline">
-                        <mat-label>Date</mat-label>
-                        <input readonly [(ngModel)]="currentForm.studentSignatureDateOne"
-                               [matDatepicker]="pickerTwo" matInput>
-                        <!-- <mat-datepicker-toggle [for]="pickerTwo" matIconSuffix></mat-datepicker-toggle> -->
-                        <mat-datepicker #pickerTwo></mat-datepicker>
-                      </mat-form-field>
-                    </div>
-                  </div>
+  <div>
+    <button mat-button class="back-button" (click)="goBack()">
+      <i class="material-icons">arrow_back_ios</i>
+      Back
+    </button>
+    <div class="approval-title">Form Approval</div>
+  </div>
+  <div class="form-container">
+    <div class="form">
+      <div class="container">
+        <div class="form-group">
+          <div class="page-one">
+            <div class="left-side">
+              <h2>Student Information</h2>
+              <h3>Student Availability:</h3>
+              <p>
+                I have reviewed my current Flight Ops availability and it is
+                correct. I agree to be scheduled for this Stage/EOC Check during
+                those times. If my availability changes after today, it is my
+                responsibility to personally update my availability on the
+                Flight Ops website by 1200 at least 2 business days prior in
+                accordance with the policies in the FOM
+              </p>
+              <div class="student-information">
+                <div class="student-stuff">
+                  <mat-form-field appearance="outline">
+                    <mat-label> Student Name</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="currentForm.studentName"
+                      matInput
+                    />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Student Number</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="currentForm.studentNumber"
+                      matInput
+                      type="number"
+                    />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="currentForm.phoneNumber"
+                      matInput
+                      type="number"
+                    />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Sent to Schedule</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="currentForm.sentToSchedule"
+                      matInput
+                    />
+                  </mat-form-field>
                 </div>
-                <div class="second-row">
-                  <h2>Stage/EOC Check Schedule:</h2>
-          
-                  <!--  -->
-                  <div class="according-to-him">
-                    <mat-accordion *ngFor="let row of currentForm.stageScheduleEntries; let indexOfelement = index;">
-          
-                      <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                          <mat-panel-title> Row {{indexOfelement + 1}} </mat-panel-title>
-                        </mat-expansion-panel-header>
-          
-                        <mat-form-field appearance="outline" class="custom-form-field">
-                          <mat-label>Time</mat-label>
-                          <input readonly [(ngModel)]="row.time" class="my-input" matInput/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="custom-form-field">
-                          <mat-label>IP Name</mat-label>
-                          <input readonly [(ngModel)]="row.ipName" class="my-input" matInput/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="custom-form-field">
-                          <mat-label>Type</mat-label>
-                          <input readonly [(ngModel)]="row.type" class="my-input" matInput/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="custom-form-field">
-                          <mat-label>Unit</mat-label>
-                          <input readonly [(ngModel)]="row.unit" matInput/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="custom-form-field">
-                          <mat-label>Hours</mat-label>
-                          <input readonly [(ngModel)]="row.hours" matInput type="number"/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="custom-form-field">
-                          <mat-label>A/C</mat-label>
-                          <input readonly [(ngModel)]="row.lastActivity" matInput/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="custom-form-field">
-                          <mat-label>Result</mat-label>
-                          <input readonly [(ngModel)]="row.result" matInput/>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="my-date-picker">
-                          <mat-label>Last Activity Date</mat-label>
-                          <input readonly [(ngModel)]="row.date" [matDatepicker]="dynamicpicker" matInput>
-                          <!-- <mat-datepicker-toggle [for]="dynamicpicker" matIconSuffix></mat-datepicker-toggle> -->
-                          <mat-datepicker #dynamicpicker></mat-datepicker>
-                        </mat-form-field>
-                      </mat-expansion-panel>
-                    </mat-accordion>
-                  </div>
-                  <!--  -->
-          
+                <div class="instructor-stuff">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Instructor Name</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="currentForm.instructorName"
+                      matInput
+                    />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Team Number</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="currentForm.teamNumber"
+                      matInput
+                      type="number"
+                    />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Last Activity Date</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="currentForm.lastActivity"
+                      [matDatepicker]="picker"
+                      matInput
+                    />
+                    <!-- <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle> -->
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>TM Approval</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="currentForm.tmApproval"
+                      matInput
+                    />
+                  </mat-form-field>
                 </div>
-          
-                <div class="third-row">
-                  <div class="ip-stuff">
-                    <mat-form-field appearance="outline">
-                      <input readonly [(ngModel)]="currentForm.ipName" matInput placeholder="IP Name"/>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <input readonly [(ngModel)]="currentForm.ipSignature" matInput placeholder="IP Signature"/>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <mat-label>Date</mat-label>
-                      <input readonly [(ngModel)]="currentForm.ipSignatureDate" [matDatepicker]="pickerThree"
-                             matInput>
-                      <!-- <mat-datepicker-toggle [for]="pickerThree" matIconSuffix></mat-datepicker-toggle> -->
-                      <mat-datepicker #pickerThree></mat-datepicker>
-                    </mat-form-field>
-                  </div>
-          
-                  <div class="second-student-signature">
-                    <mat-form-field appearance="outline">
-                      <input readonly [(ngModel)]="currentForm.studentSignatureTwo" matInput placeholder="Student Signature"/>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <mat-label>Date</mat-label>
-          
-                      <input readonly [(ngModel)]="currentForm.studentSignatureDateTwo"
-                             [matDatepicker]="pickerFour" matInput>
-                      <!-- <mat-datepicker-toggle [for]="pickerFour" matIconSuffix></mat-datepicker-toggle> -->
-                      <mat-datepicker #pickerFour></mat-datepicker>
-                    </mat-form-field>
-                  </div>
-                </div>
+              </div>
+              <mat-form-field appearance="outline">
+                <textarea
+                  class="asdf"
+                  matInput
+                  placeholder="Remarks..."
+                ></textarea>
+                <input readonly matInput />
+              </mat-form-field>
+            </div>
+            <div class="right-side">
+              <mat-accordion>
+                <mat-expansion-panel
+                  (closed)="panelOpenState = false"
+                  (opened)="panelOpenState = true"
+                >
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Items Required</mat-panel-title>
+                    <mat-panel-description>
+                      {{
+                        panelOpenState
+                          ? "Close List"
+                          : "Click for a list of minimum items for Stage Check/EOC-"
+                      }}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <ul class="items-list">
+                    <li>Government issued photo ID</li>
+                    <li>Current Medical Certificate</li>
+                    <li>Current Student Pilot Certificate</li>
+                    <li>Logbook</li>
+                    <li>
+                      Endorsements (Student Pilot Cert. & Logbook) required by
+                      14 CFR Part61 for solo flight
+                    </li>
+                    <li>
+                      W&B/Performance data sheet completed prior to pre-flight
+                      briefing
+                    </li>
+                    <li>
+                      Risk Assessment form completed prior to pre-flight
+                      briefing
+                    </li>
+                    <li>Current C-172S NAV III checklists</li>
+                    <li>Current C-172S NAV III PIM</li>
+                    <li>Current Phoenix Sectional</li>
+                    <li>Current Southwest Chart Supplement</li>
+                    <li>
+                      Current Flight Operations Manual (for flight portion of
+                      stage check)
+                    </li>
+                  </ul>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <div class="agreement">
+                <p>
+                  I have reviewed all of the items to be performed on this
+                  Stage/EOC Check and am prepared as of today to accomplish each
+                  item to the standards stated in the ERAU Course Standards.
+                </p>
+                <p>
+                  I have reviewed my current Flight Ops availability and it is
+                  correct. I agree to be scheduled for this Stage/EOC Check
+                  during those times. If my availability changes after today, it
+                  is my responsibility to personally update my availability on
+                  the Flight Ops website by 1200 at least 2 business days prior
+                  in accordance with the policies in the FOM.
+                </p>
+                <p>
+                  If I do not bring the above items or update my availability
+                  before being scheduled, I will be NO-SHOWED for any and all
+                  activities scheduled.
+                </p>
+                <p>
+                  I will monitor ETA to determine the POSTED time of my
+                  activities
+                </p>
+                <h2>I HAVE READ AND AGREE TO ALL OF THE ABOVE STATEMENTS</h2>
+              </div>
+              <div class="signature">
+                <mat-form-field appearance="outline">
+                  <input
+                    readonly
+                    [(ngModel)]="currentForm.studentSignatureOne"
+                    matInput
+                    placeholder="Signature"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Date</mat-label>
+                  <input
+                    readonly
+                    [(ngModel)]="currentForm.studentSignatureDateOne"
+                    [matDatepicker]="pickerTwo"
+                    matInput
+                  />
+                  <!-- <mat-datepicker-toggle [for]="pickerTwo" matIconSuffix></mat-datepicker-toggle> -->
+                  <mat-datepicker #pickerTwo></mat-datepicker>
+                </mat-form-field>
               </div>
             </div>
           </div>
-    </div>
-    <div class="approval-subgrid-lol">
-        <div class="center-items">
+          <div class="second-row">
+            <h2>Stage/EOC Check Schedule:</h2>
 
-            <button mat-button class="sig-button">
-                <i class="material-icons" style="margin-right: 4px;">open_in_new</i>
-                View / Approve In ETA
-            </button>
+            <!--  -->
+            <div class="according-to-him">
+              <mat-accordion
+                *ngFor="
+                  let row of currentForm.stageScheduleEntries;
+                  let indexOfelement = index
+                "
+              >
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Row {{ indexOfelement + 1 }}
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
 
-            <mat-form-field class="signature-field">
-                <mat-label>Signature</mat-label>
-                <!-- <mat-icon matPrefix>close</mat-icon> -->
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field class="signature-field">
+                  <mat-form-field
+                    appearance="outline"
+                    class="custom-form-field"
+                  >
+                    <mat-label>Time</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="row.time"
+                      class="my-input"
+                      matInput
+                    />
+                  </mat-form-field>
+                  <mat-form-field
+                    appearance="outline"
+                    class="custom-form-field"
+                  >
+                    <mat-label>IP Name</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="row.ipName"
+                      class="my-input"
+                      matInput
+                    />
+                  </mat-form-field>
+                  <mat-form-field
+                    appearance="outline"
+                    class="custom-form-field"
+                  >
+                    <mat-label>Type</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="row.type"
+                      class="my-input"
+                      matInput
+                    />
+                  </mat-form-field>
+                  <mat-form-field
+                    appearance="outline"
+                    class="custom-form-field"
+                  >
+                    <mat-label>Unit</mat-label>
+                    <input readonly [(ngModel)]="row.unit" matInput />
+                  </mat-form-field>
+                  <mat-form-field
+                    appearance="outline"
+                    class="custom-form-field"
+                  >
+                    <mat-label>Hours</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="row.hours"
+                      matInput
+                      type="number"
+                    />
+                  </mat-form-field>
+                  <mat-form-field
+                    appearance="outline"
+                    class="custom-form-field"
+                  >
+                    <mat-label>A/C</mat-label>
+                    <input readonly [(ngModel)]="row.ac" matInput />
+                  </mat-form-field>
+                  <mat-form-field
+                    appearance="outline"
+                    class="custom-form-field"
+                  >
+                    <mat-label>Result</mat-label>
+                    <input readonly [(ngModel)]="row.result" matInput />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="my-date-picker">
+                    <mat-label>Last Activity Date</mat-label>
+                    <input
+                      readonly
+                      [(ngModel)]="row.date"
+                      [matDatepicker]="dynamicpicker"
+                      matInput
+                    />
+                    <!-- <mat-datepicker-toggle [for]="dynamicpicker" matIconSuffix></mat-datepicker-toggle> -->
+                    <mat-datepicker #dynamicpicker></mat-datepicker>
+                  </mat-form-field>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+            <!--  -->
+          </div>
+
+          <div class="third-row">
+            <div class="ip-stuff">
+              <mat-form-field appearance="outline">
+                <input
+                  readonly
+                  [(ngModel)]="currentForm.ipName"
+                  matInput
+                  placeholder="IP Name"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <input
+                  readonly
+                  [(ngModel)]="currentForm.ipSignature"
+                  matInput
+                  placeholder="IP Signature"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
                 <mat-label>Date</mat-label>
-                <input matInput [matDatepicker]="pickerpicker" readonly [(ngModel)]="currentDate">
-                <mat-datepicker #pickerpicker></mat-datepicker>
-            </mat-form-field>
+                <input
+                  readonly
+                  [(ngModel)]="currentForm.ipSignatureDate"
+                  [matDatepicker]="pickerThree"
+                  matInput
+                />
+                <!-- <mat-datepicker-toggle [for]="pickerThree" matIconSuffix></mat-datepicker-toggle> -->
+                <mat-datepicker #pickerThree></mat-datepicker>
+              </mat-form-field>
+            </div>
 
+            <div class="second-student-signature">
+              <mat-form-field appearance="outline">
+                <input
+                  readonly
+                  [(ngModel)]="currentForm.studentSignatureTwo"
+                  matInput
+                  placeholder="Student Signature"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Date</mat-label>
+
+                <input
+                  readonly
+                  [(ngModel)]="currentForm.studentSignatureDateTwo"
+                  [matDatepicker]="pickerFour"
+                  matInput
+                />
+                <!-- <mat-datepicker-toggle [for]="pickerFour" matIconSuffix></mat-datepicker-toggle> -->
+                <mat-datepicker #pickerFour></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
         </div>
-        <div class="remarks-container"
-            *ngIf="(userService.currentUser === 'TM') || (userService.currentUser === 'ADMIN')">
-            <div class="remarks-label">Remarks</div>
-            <textarea matInput class="remarks-area"></textarea>
-        </div>
-        <div class="center-items">
-            <button mat-button class="done-button">
-                <i class="material-icons" style="margin-right: 2px;">done</i>
-                Done
-            </button>
-            <div class="helper-text">Click 'Done' to complete approval and update form.</div>
-        </div>
+      </div>
     </div>
+  </div>
+  <div class="approval-subgrid-lol">
+    <div class="center-items">
+      <button mat-button class="sig-button">
+        <i class="material-icons" style="margin-right: 4px">open_in_new</i>
+        View / Approve In ETA
+      </button>
+
+      <mat-form-field class="signature-field">
+        <mat-label>Signature</mat-label>
+        <!-- <mat-icon matPrefix>close</mat-icon> -->
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field class="signature-field">
+        <mat-label>Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="pickerpicker"
+          readonly
+          [(ngModel)]="currentDate"
+        />
+        <mat-datepicker #pickerpicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div
+      class="remarks-container"
+      *ngIf="
+        userService.currentUser === 'TM' || userService.currentUser === 'ADMIN'
+      "
+    >
+      <div class="remarks-label">Remarks</div>
+      <textarea matInput class="remarks-area"></textarea>
+    </div>
+    <div class="center-items">
+      <button mat-button class="done-button">
+        <i class="material-icons" style="margin-right: 2px">done</i>
+        Done
+      </button>
+      <div class="helper-text">
+        Click 'Done' to complete approval and update form.
+      </div>
+    </div>
+  </div>
 </div>
