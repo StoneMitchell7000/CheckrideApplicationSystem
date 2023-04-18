@@ -4,17 +4,21 @@ import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CheckrideForm } from './models/checkride-form';
 import { FormDetails } from './models/form-details';
+import { AnimationDriver } from '@angular/animations/browser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   baseUrl = environment.baseUrl;
+  formUpdateId: number = -1;
+  formUpdateStatus: string = 'null';
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
+  // load all forms (basic info)
   loadForms(): Observable<any> {
     if (environment.production) {
       return this.httpClient.get(this.baseUrl + '/forms');
@@ -24,6 +28,7 @@ export class DataService {
     }
   }
 
+  // load one form all feilds (by checkrideId)
   loadFormDetails(checkrideId: number): Observable<any> {
     if (environment.production) {
       return this.httpClient.get(this.baseUrl + '/formdetails/' + checkrideId);
@@ -33,17 +38,19 @@ export class DataService {
     }
   }
 
-  saveForm(form: FormDetails): Observable<any> {
+  // save all form fields of one form (except basic info)
+  saveFormDetails(form: FormDetails): Observable<any> {
     if (environment.production) {
       // POST, NOT GET
-      return this.httpClient.post(this.baseUrl + '/saveform', form);
+      return this.httpClient.post(this.baseUrl + '/saveformdetails', form);
     }
     else {
       return of(1);
     }
   }
 
-  saveNewForm(form: CheckrideForm): Observable<any> {
+  // save basic info of one form
+  saveForm(form: CheckrideForm): Observable<any> {
     if (environment.production) {
       // POST, NOT GET
       return this.httpClient.post(this.baseUrl + '/newform', form);

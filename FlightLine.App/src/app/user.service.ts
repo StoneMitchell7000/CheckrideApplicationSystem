@@ -8,7 +8,8 @@ export class UserService {
   currentUser: string;
 
   constructor() {
-    this.currentUser = 'ADMIN';
+    this.currentUser = 'IP';
+    // this.currentUser = 'ADMIN';
   }
 
   changeUser(userType: string): void {

@@ -5,6 +5,7 @@ import { FormDetails } from '../models/form-details';
 import { NgProgress, NgProgressRef } from 'ngx-progressbar';
 import { DataService } from '../data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-approval',
@@ -43,6 +44,9 @@ export class ApprovalComponent implements OnInit {
       this.currentForm = resp;
       this.currentForm.tmApprovalDate = new Date();
       this.currentForm.roApprovalDate = new Date();
+      if (!environment.production) {
+        this.currentForm.checkrideId = checkrideId;
+      }
       this.progress.complete();
     });
   }
@@ -67,8 +71,17 @@ export class ApprovalComponent implements OnInit {
 
   saveForm(): void {
     this.progress.start();
-    this.dataService.saveForm(this.currentForm).subscribe(resp => {
+    this.dataService.saveFormDetails(this.currentForm).subscribe(resp => {
       this.progress.complete();
+      this.dataService.formUpdateId = this.currentForm.checkrideId;
+      // VVV covers EOC's and everthing else(RO approving doesn't change status)
+      // (app still needs a means of differentiating b/w EOC's and otherwise)
+      if (this.userService.currentUser === 'TM') {
+        this.dataService.formUpdateStatus = 'active';
+      } else {
+        // don't update
+        this.dataService.formUpdateId = -1;
+      }
       this.goBack();
     });
   }

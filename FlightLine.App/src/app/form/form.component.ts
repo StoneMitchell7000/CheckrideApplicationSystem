@@ -4,6 +4,7 @@ import { FormDetails } from '../models/form-details';
 import { DataService } from '../data.service';
 import { NgProgress, NgProgressRef } from 'ngx-progressbar';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environment';
 
 @Component({
   styleUrls: ['./form.component.scss'],
@@ -39,6 +40,9 @@ export class FormComponent implements OnInit {
     this.dataService.loadFormDetails(checkrideId).subscribe(resp => {
       // this.currentForm = resp.msg;
       this.currentForm = resp;
+      if (!environment.production) {
+        this.currentForm.checkrideId = checkrideId;
+      }
       this.progress.complete();
     });
   }
@@ -58,7 +62,7 @@ export class FormComponent implements OnInit {
 
   saveForm(): void {
     this.progress.start();
-    this.dataService.saveForm(this.currentForm).subscribe(resp => {
+    this.dataService.saveFormDetails(this.currentForm).subscribe(resp => {
       this.progress.complete();
       this.goBack();
     });
