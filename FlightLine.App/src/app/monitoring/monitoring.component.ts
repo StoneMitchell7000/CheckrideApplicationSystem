@@ -59,8 +59,8 @@ export class MonitoringComponent implements OnInit {
     this.checkrideForms = [];
     this.progress.start();
     this.dataService.loadForms().subscribe(resp => {
-      // this.checkrideForms = resp.msg;
-      this.checkrideForms = resp;
+      this.checkrideForms = resp.msg;
+      // this.checkrideForms = resp;
       this.progress.complete();
 
       if (this.userService.currentUser === "IP") {

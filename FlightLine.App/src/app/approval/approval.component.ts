@@ -40,8 +40,8 @@ export class ApprovalComponent implements OnInit {
     this.currentForm = new FormDetails({});
     this.progress.start();
     this.dataService.loadFormDetails(checkrideId).subscribe(resp => {
-      // this.currentForm = resp.msg;
-      this.currentForm = resp;
+      this.currentForm = resp.msg;
+      // this.currentForm = resp;
       this.currentForm.tmApprovalDate = new Date();
       this.currentForm.roApprovalDate = new Date();
       if (!environment.production) {

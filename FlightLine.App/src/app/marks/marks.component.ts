@@ -37,8 +37,8 @@ export class MarksComponent implements OnInit {
     console.log();
     this.progress.start();
     this.dataService.loadFormDetails(checkrideId).subscribe(resp => {
-      // this.currentForm = resp.msg;
-      this.currentForm = resp;
+      this.currentForm = resp.msg;
+      // this.currentForm = resp;
       if (!environment.production) {
         this.currentForm.checkrideId = checkrideId;
       }

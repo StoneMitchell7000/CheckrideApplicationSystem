@@ -38,8 +38,8 @@ export class FormComponent implements OnInit {
     this.currentForm = new FormDetails({});
     this.progress.start();
     this.dataService.loadFormDetails(checkrideId).subscribe(resp => {
-      // this.currentForm = resp.msg;
-      this.currentForm = resp;
+      this.currentForm = resp.msg;
+      // this.currentForm = resp;
       if (!environment.production) {
         this.currentForm.checkrideId = checkrideId;
       }
