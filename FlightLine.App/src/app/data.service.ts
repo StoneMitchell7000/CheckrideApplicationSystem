@@ -65,7 +65,7 @@ export class DataService {
     let tempForms = new Array<CheckrideForm>();
     let temp = {
       checkride_id: 100, student_name: 'Testy Testerson',
-      student_id: 0, status: 'pending',
+      student_id: 0, status: 'Pending',
       details: 'What should go here? status is prolly 1 thing. lmk', date_created: new Date()
     };
     for (let i = 0; i < 90; i++) {
@@ -73,65 +73,65 @@ export class DataService {
       temp.student_id++;
       temp.student_name = 'Testy Testerson ' + temp.student_id.toString();
       if (i < 3) {
-        temp.status = 'pending';
+        temp.status = 'Pending';
       } else if (i < 6) {
-        temp.status = 'active';
+        temp.status = 'Active';
       } else if (i < 9) {
-        temp.status = 'assigned';
+        temp.status = 'Assigned';
       } else if (i < 12) {
-        temp.status = 'partially scheduled';
+        temp.status = 'Partially Scheduled';
       } else if (i < 15) {
-        temp.status = 'fully scheduled';
+        temp.status = 'Fully Scheduled';
       } else if (i < 18) {
-        temp.status = 'complete';
+        temp.status = 'Complete';
       } else if (i < 21) {
-        temp.status = 'pending';
+        temp.status = 'Pending';
       } else if (i < 24) {
-        temp.status = 'active';
+        temp.status = 'Active';
       } else if (i < 27) {
-        temp.status = 'assigned';
+        temp.status = 'Assigned';
       } else if (i < 30) {
-        temp.status = 'partially scheduled';
+        temp.status = 'Partially Scheduled';
       } else if (i < 33) {
-        temp.status = 'fully scheduled';
+        temp.status = 'Fully Scheduled';
       } else if (i < 36) {
-        temp.status = 'complete';
+        temp.status = 'Complete';
       } else if (i < 39) {
-        temp.status = 'pending';
+        temp.status = 'Pending';
       } else if (i < 42) {
-        temp.status = 'active';
+        temp.status = 'Active';
       } else if (i < 45) {
-        temp.status = 'assigned';
+        temp.status = 'Assigned';
       } else if (i < 48) {
-        temp.status = 'partially scheduled';
+        temp.status = 'Partially Scheduled';
       } else if (i < 51) {
-        temp.status = 'fully scheduled';
+        temp.status = 'Fully Scheduled';
       } else if (i < 54) {
-        temp.status = 'complete';
+        temp.status = 'Complete';
       } else if (i < 57) {
-        temp.status = 'pending';
+        temp.status = 'Pending';
       } else if (i < 60) {
-        temp.status = 'active';
+        temp.status = 'Active';
       } else if (i < 63) {
-        temp.status = 'assigned';
+        temp.status = 'Assigned';
       } else if (i < 66) {
-        temp.status = 'partially scheduled';
+        temp.status = 'Partially Scheduled';
       } else if (i < 69) {
-        temp.status = 'fully scheduled';
+        temp.status = 'Fully Scheduled';
       } else if (i < 72) {
-        temp.status = 'complete';
+        temp.status = 'Complete';
       } else if (i < 75) {
-        temp.status = 'pending';
+        temp.status = 'Pending';
       } else if (i < 78) {
-        temp.status = 'active';
+        temp.status = 'Active';
       } else if (i < 81) {
-        temp.status = 'assigned';
+        temp.status = 'Assigned';
       } else if (i < 84) {
-        temp.status = 'partially scheduled';
+        temp.status = 'Partially Scheduled';
       } else if (i < 87) {
-        temp.status = 'fully scheduled';
+        temp.status = 'Fully Scheduled';
       } else {
-        temp.status = 'complete';
+        temp.status = 'Complete';
       }
       tempForms.push(new CheckrideForm(temp));
     }

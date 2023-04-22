@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { NgProgress, NgProgressRef } from 'ngx-progressbar';
+import { NgProgress, NgProgressRef } from '@ngx-progressbar/core';
 import { debounceTime } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { CheckrideForm } from '../models/checkride-form';
@@ -8,6 +8,7 @@ import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { NewFormComponent } from '../new-form/new-form.component';
 import { MatDialog } from '@angular/material/dialog';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-monitoring',
@@ -59,20 +60,24 @@ export class MonitoringComponent implements OnInit {
     this.checkrideForms = [];
     this.progress.start();
     this.dataService.loadForms().subscribe(resp => {
-      this.checkrideForms = resp.msg;
-      // this.checkrideForms = resp;
+      if (environment.production) {
+        this.checkrideForms = resp.msg;
+      } else {
+        this.checkrideForms = resp;
+      }
+
       this.progress.complete();
 
       if (this.userService.currentUser === "IP") {
-        this.statusSearch = ['pending'];
+        this.statusSearch = ['Pending'];
       } else if (this.userService.currentUser === "CI") {
-        this.statusSearch = ['assigned', 'partially scheduled', 'fully scheduled'];
+        this.statusSearch = ['Assigned', 'Partially Scheduled', 'Fully Scheduled'];
       } else if (this.userService.currentUser === "TM") {
-        this.statusSearch = ['pending'];
+        this.statusSearch = ['Pending'];
       } else if (this.userService.currentUser === "FO") {
-        this.statusSearch = ['active', 'assigned', 'partially scheduled', 'fully scheduled'];
+        this.statusSearch = ['Active', 'Assigned', 'Partially Scheduled', 'Fully Scheduled'];
       } else if (this.userService.currentUser === "RO") {
-        this.statusSearch = ['active'];
+        this.statusSearch = ['Active'];
       }
 
       // update status
@@ -142,7 +147,7 @@ export class MonitoringComponent implements OnInit {
     dialog.afterClosed().subscribe(result => {
       if (result) {
         result.dateCreated = new Date();
-        result.status = 'pending';
+        result.status = 'Pending';
         this.saveForm(result);
       }
     });

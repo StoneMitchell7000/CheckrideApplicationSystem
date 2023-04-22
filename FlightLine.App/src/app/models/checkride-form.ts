@@ -12,14 +12,4 @@ export class CheckrideForm {
         this.status = obj && obj.status || obj.status || null;
         this.dateCreated = obj && obj.date_created || obj.dateCreated || null;
     }
-
-    get formatStatus(): any {
-        if (this.status) {
-            let words = this.status.split(" ");
-            for (let i = 0; i < words.length; i++) {
-                words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-            }
-            return words.join(" ");
-        }
-    }
 }

@@ -19,12 +19,12 @@ export class FormDetails {
   public tmApproval: string;
   public formRemarks: string;
   public studentSignatureOne: string;
-  public studentSignatureDateOne: string;
+  public studentSignatureDateOne: Date;
   public studentSignatureTwo: string;
-  public studentSignatureDateTwo: string;
+  public studentSignatureDateTwo: Date;
   public ipName: string;
   public ipSignature: string;
-  public ipSignatureDate: string;
+  public ipSignatureDate: Date;
   public stageScheduleEntries: StageScheduleEntry[];
 
   constructor(obj?: any) {

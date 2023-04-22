@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormDetails } from '../models/form-details';
 import { DataService } from '../data.service';
-import { NgProgress, NgProgressRef } from 'ngx-progressbar';
+import { NgProgress, NgProgressRef } from '@ngx-progressbar/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environment';
 
@@ -38,8 +38,11 @@ export class FormComponent implements OnInit {
     this.currentForm = new FormDetails({});
     this.progress.start();
     this.dataService.loadFormDetails(checkrideId).subscribe(resp => {
-      this.currentForm = resp.msg;
-      // this.currentForm = resp;
+      if (environment.production) {
+        this.currentForm = resp.msg;
+      } else {
+        this.currentForm = resp;
+      }
       if (!environment.production) {
         this.currentForm.checkrideId = checkrideId;
       }
@@ -53,7 +56,7 @@ export class FormComponent implements OnInit {
 
   submit(): void {
     for (const key in this.currentForm) {
-      if ((this.currentForm as any)[key] == null) {
+      if ((this.currentForm as any)[key] == null && (key !== 'tmApprovalSig' && key !== 'tmApprovalRemarks' && key !== 'tmApprovalDate' && key !== 'roApprovalSig' && key !== 'roApprovalDate')) {
         this.openSnackBar(`Please fill out the ${key} field`, 3000);
         return;
       }

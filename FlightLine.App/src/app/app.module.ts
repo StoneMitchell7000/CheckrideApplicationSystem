@@ -15,8 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { NgProgressModule } from "ngx-progressbar";
-import { NgProgressHttpModule } from "ngx-progressbar/http";
+import { NgProgressModule } from '@ngx-progressbar/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AccountDialogComponent } from './account-dialog/account-dialog.component';
@@ -50,10 +49,7 @@ import { NewFormComponent } from './new-form/new-form.component';
     MatSelectModule,
     MatTooltipModule,
     HttpClientModule,
-    NgProgressModule.withConfig({
-      color: "#ffcb06"
-    }),
-    NgProgressHttpModule,
+    NgProgressModule,
     MatDialogModule,
     MatSnackBarModule,
     MatDatepickerModule,

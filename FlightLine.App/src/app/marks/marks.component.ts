@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgProgress, NgProgressRef } from 'ngx-progressbar';
+import { NgProgress, NgProgressRef } from '@ngx-progressbar/core';
 import { DataService } from '../data.service';
 import { FormDetails } from '../models/form-details';
 import { environment } from 'src/environments/environment';
@@ -37,8 +37,11 @@ export class MarksComponent implements OnInit {
     console.log();
     this.progress.start();
     this.dataService.loadFormDetails(checkrideId).subscribe(resp => {
-      this.currentForm = resp.msg;
-      // this.currentForm = resp;
+      if (environment.production) {
+        this.currentForm = resp.msg;
+      } else {
+        this.currentForm = resp;
+      }
       if (!environment.production) {
         this.currentForm.checkrideId = checkrideId;
       }
@@ -52,7 +55,7 @@ export class MarksComponent implements OnInit {
       this.progress.complete();
       this.dataService.formUpdateId = this.currentForm.checkrideId;
       // need logic to determine what status to change to (whether or not marks were good)
-      this.dataService.formUpdateStatus = 'complete';
+      this.dataService.formUpdateStatus = 'Complete';
       this.goBack();
     });
   }

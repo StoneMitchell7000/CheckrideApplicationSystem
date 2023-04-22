@@ -37,8 +37,10 @@
                     <input readonly [(ngModel)]="currentForm.phoneNumber" matInput type="number" />
                   </mat-form-field>
                   <mat-form-field appearance="outline">
-                    <mat-label>Sent to Schedule</mat-label>
-                    <input readonly [(ngModel)]="currentForm.sentToSchedule" matInput />
+                    <mat-label>Last Activity Date</mat-label>
+                    <input readonly [(ngModel)]="currentForm.sentToSchedule" [matDatepicker]="balls" matInput>
+                    <!-- <mat-datepicker-toggle [for]="balls" matIconSuffix></mat-datepicker-toggle> -->
+                    <mat-datepicker #balls></mat-datepicker>
                   </mat-form-field>
                 </div>
                 <div class="instructor-stuff">
@@ -186,7 +188,7 @@
                     <input [(ngModel)]="row.result" matInput />
                   </mat-form-field>
                   <mat-form-field appearance="outline" class="my-date-picker">
-                    <mat-label>Last Activity Date</mat-label>
+                    <mat-label>Date</mat-label>
                     <input (click)="dynamicpicker.open()" [(ngModel)]="row.date" [matDatepicker]="dynamicpicker"
                       matInput>
                     <mat-datepicker-toggle [for]="dynamicpicker" matIconSuffix></mat-datepicker-toggle>

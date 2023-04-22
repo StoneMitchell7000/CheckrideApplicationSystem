@@ -12,12 +12,12 @@
             <mat-form-field class="search-field" style="width: 228px;">
                 <mat-label>Filter By Status</mat-label>
                 <mat-select [formControl]="statusSearchControl" multiple [ngModel]="statusSearch">
-                    <mat-option value="pending">Pending</mat-option>
-                    <mat-option value="active">Active</mat-option>
-                    <mat-option value="assigned">Assigned</mat-option>
-                    <mat-option value="partially scheduled">Partially scheduled</mat-option>
-                    <mat-option value="fully scheduled">Fully scheduled</mat-option>
-                    <mat-option value="complete">Complete</mat-option>
+                    <mat-option value="Pending">Pending</mat-option>
+                    <mat-option value="Active">Active</mat-option>
+                    <mat-option value="Assigned">Assigned</mat-option>
+                    <mat-option value="Partially Scheduled">Partially scheduled</mat-option>
+                    <mat-option value="Fully Scheduled">Fully scheduled</mat-option>
+                    <mat-option value="Complete">Complete</mat-option>
                 </mat-select>
             </mat-form-field>
         </form>
@@ -39,14 +39,14 @@
                 </div>
                 <div class="form-scroll-container">
                     <div *ngFor="let form of filteredForms">
-                        <div class="form-row animated fadeInUp" [ngClass]="{'pending-form' : form.status === 'pending', 
-                            'active-form' : form.status === 'active', 
-                            'assigned-form' : form.status === 'assigned',
-                            'partially-scheduled-form' : form.status === 'partially scheduled',
-                            'fully-scheduled-form' : form.status === 'fully scheduled',
-                            'complete-form' : form.status === 'complete'}">
+                        <div class="form-row animated fadeInUp" [ngClass]="{'pending-form' : form.status === 'Pending', 
+                            'active-form' : form.status === 'Active', 
+                            'assigned-form' : form.status === 'Assigned',
+                            'partially-scheduled-form' : form.status === 'Partially Scheduled',
+                            'fully-scheduled-form' : form.status === 'Fully Scheduled',
+                            'complete-form' : form.status === 'Complete'}">
                             <div class="row-spine">{{form.studentName}}</div>
-                            <div class="bold-item">{{form.formatStatus}}</div>
+                            <div class="bold-item">{{form.status}}</div>
                             <div class="button-box">
                                 <button mat-icon-button class="action-button" matTooltip="Fill Out and Submit"
                                     matTooltipPosition="below" matTooltipShowDelay="0"

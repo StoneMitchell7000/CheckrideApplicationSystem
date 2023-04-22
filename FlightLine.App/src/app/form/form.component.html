@@ -36,7 +36,9 @@
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Sent to Schedule</mat-label>
-                <input [(ngModel)]="currentForm.sentToSchedule" matInput/>
+                <input (click)="balls.open()" [(ngModel)]="currentForm.sentToSchedule" [matDatepicker]="balls" matInput>
+                <mat-datepicker-toggle [for]="balls" matIconSuffix></mat-datepicker-toggle>
+                <mat-datepicker #balls></mat-datepicker>
               </mat-form-field>
             </div>
             <div class="instructor-stuff">
@@ -61,8 +63,8 @@
             </div>
           </div>
           <mat-form-field appearance="outline">
-            <textarea class="asdf" matInput placeholder="Remarks..."></textarea>
-            <input [(ngModel)]="currentForm.formRemarks" matInput/>
+            <textarea class="asdf" matInput placeholder="Remarks..." [(ngModel)]="currentForm.formRemarks"></textarea>
+            <input matInput/>
           </mat-form-field>
         </div>
         <div class="right-side">
@@ -184,7 +186,7 @@
                 <input [(ngModel)]="row.result" matInput/>
               </mat-form-field>
               <mat-form-field appearance="outline" class="my-date-picker">
-                <mat-label>Last Activity Date</mat-label>
+                <mat-label>Date</mat-label>
                 <input (click)="dynamicpicker.open()" [(ngModel)]="row.date" [matDatepicker]="dynamicpicker" matInput>
                 <mat-datepicker-toggle [for]="dynamicpicker" matIconSuffix></mat-datepicker-toggle>
                 <mat-datepicker #dynamicpicker></mat-datepicker>
